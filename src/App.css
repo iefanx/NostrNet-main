@@ -12,6 +12,16 @@ body {
 }
 
 
+.left-corner-container {
+  position: absolute;
+  top: 2;
+  left: 0;
+  margin-left: 4px;
+}
+
+
+
+
 
 .embed-container {
   width: 100%;
