@@ -94,8 +94,8 @@ const App = () => {
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '2rem' }}>
           <div>
-            <h1 className="text-4xl font-bold mt-4 px-5 mb-2">ℕ</h1>
-             <h2 className="text-sm font-medium mx-8 mb-4 px-5">NostrNet.work, It offers a unified dashboard to manage all your Nostr web apps in one place. (Beta)</h2>
+            <h1 className="text-4xl font-extrabold mt-4 px-5 mb-2">ℕ</h1>
+             <h2 className="text-sm font-semibold mx-8 mb-4 px-5">NostrNet.work, It offers a unified dashboard to manage all your Nostr web apps in one place. (Beta)</h2>
           </div>
           <div style={{ position: 'fixed', right: '5%', bottom: '0' }}>
             <button className="px-4 py-2 text-sm rounded font-bold text-white" onClick={handleDeleteAllClick}>
