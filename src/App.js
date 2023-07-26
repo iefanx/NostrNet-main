@@ -94,7 +94,7 @@ const App = () => {
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '2rem' }}>
           <div>
-            <h1 className="text-4xl font-bold mt-4 px-5 mb-2">ℕ</h1>
+            <h1 className="text-4xl font-bold mt-4 px-5 mb-2">ℕostrNet.work</h1>
              <h2 className="text-sm font-bold mx-8 mb-4 px-5">One PWA to organize all Nostr WebApps and other PWAs
               & use any website as a Native App. (Mobile only)</h2>
           </div>
