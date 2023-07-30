@@ -94,11 +94,15 @@ const App = () => {
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '2rem' }}>
           <div>
-            <h1 className="text-4xl font-extrabold mt-4 px-5 mb-2">ℕ</h1>
-             <h2 className="text-sm font-semibold mx-8 mb-4 px-5">NostrNet.work, It offers a unified dashboard to manage all your Nostr web apps in one place. (Beta)</h2>
+          <h1 class=" text-3xl font-serif mt-4 px-5 m-3">
+            <span class="font-black">ℕ</span><span class="font-medium  text-2xl">ostrNet</span>
+          </h1>
+
+          <h2 class="text-xs font-semibold mx-9   md:text-base lg:text-lg">NostrNet.work, It offers a unified dashboard to manage all your Nostr web apps in one place.</h2>
           </div>
+          
           <div style={{ position: 'fixed', right: '5%', bottom: '0' }}>
-            <button className="px-4 py-2 text-sm rounded font-bold text-white" onClick={handleDeleteAllClick}>
+            <button className="px-4 py-2 text-sm rounded font-bold  text-white" onClick={handleDeleteAllClick}>
               Reset
             </button>
           </div>
@@ -170,15 +174,21 @@ const App = () => {
       )}
       {showSecondMenu && (
         <nav className="flex justify-center mb-0">
-          <div className="grid grid-cols-3 gap-4 mt-2">
+          <div className="grid grid-cols-4 gap-2 mt-2">
             {memoizedEmbeds.map((embed) => (
               <button
                 key={embed.id}
-                className={`menu-item px-2 py-2 font-bold text-sm rounded ${
-                  embed.active ? 'bg-blue-600 text-sm hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
+                className={`menu-item px-2 py-0 font-medium text-xs rounded ${
+                  embed.active ? 'bg-blue-600 text-sm py-2 hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
                 }`}
                 onClick={embed.handleClick}
                 aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
+                style={{
+                  maxWidth: '100px', // Adjust the max-width as per your preference
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}
               >
                 <span className="embed-title">{embed.title}</span>
               </button>
@@ -196,12 +206,13 @@ const App = () => {
           </div>
         </nav>
       )}
+
       <div className="full-width-container"></div>
       <div className="flex flex-col items-center mt-2">
         {memoizedEmbeds.map((embed) => (
           <div key={embed.id} className={`embed-container ${embed.active ? 'active' : ''}`}>
             {embed.active && (
-              <iframe src={embed.url} frameBorder="0" scrolling="yes" className="embed-iframe" title={embed.title} />
+              <iframe src={embed.url} frameBorder="0" scrolling="yes" className="embed-iframe" title={embed.title} loading="lazy" allow="clipboard-write"/>
             )}
           </div>
         ))}
@@ -248,25 +259,25 @@ const getDefaultEmbedsData = () => {
     {
       id: 'nostrband-embed',
       url: 'https://nostr.band/',
-      title: 'Nostr Band',
+      title: 'Nostr.Band',
       active: false,
     },
     {
       id: 'nostrbuild-embed',
       url: 'https://nostr.build/',
-      title: 'Nostr Build',
+      title: 'Nostr.Build',
       active: false,
     },
     {
       id: 'nostrnests-embed',
       url: 'https://nostrnests.com/',
-      title: 'Nostr Nests',
+      title: 'NostrNests',
       active: false,
     },
     {
       id: 'chess-embed',
       url: 'https://jesterui.github.io/',
-      title: 'Nostr Chess',
+      title: 'Chess',
       active: false,
     },
     {
@@ -276,9 +287,15 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
+      id: 'snort-embed',
+      url: 'https://snort.social/notes',
+      title: 'Snort',
+      active: false,
+    },
+    {
       id: 'zapstream-embed',
       url: 'https://zap.stream/',
-      title: 'Zap Stream',
+      title: 'Zap.Stream',
       active: false,
     },
     {
