@@ -115,14 +115,14 @@ const App = () => {
             </h2>
           </div>
           <div style={{ position: 'fixed', right: '5%', bottom: '0' }}>
-            <button className="px-4 py-2 text-sm rounded font-bold text-white" onClick={handleDeleteAllClick}>
-              {showDeleteButtons ? 'Save' : 'Edit'}
-            </button>
-            {showDeleteButtons && (
+          {showDeleteButtons && (
               <button className="px-4 py-2 ml-2 text-sm rounded font-bold text-white" onClick={handleDefaultClick}>
                 Default
               </button>
             )}
+            <button className="px-4 py-2 text-sm rounded font-bold text-white" onClick={handleDeleteAllClick}>
+              {showDeleteButtons ? 'Save' : 'Edit'}
+            </button>
           </div>
         </div>
       )}
