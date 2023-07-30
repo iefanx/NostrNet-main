@@ -182,7 +182,7 @@ const App = () => {
           </div>
           <a href="/" rel="noopener noreferrer">
             <button
-              className="px-4 py-1 text-sm mr-2 rounded bg-gray-900 font-bold text-gray-200"
+              className="px-4 py-1 text-xs mr-2 rounded bg-gray-900 font-semibold text-gray-200"
               onClick={handleHomeButtonClick}
             >
               Home
@@ -191,14 +191,14 @@ const App = () => {
 
           {showSecondMenu ? (
             <button
-              className="px-4 py-1 text-sm rounded mr-2 bg-purple-900 font-bold text-gray-200 "
+              className="px-4 py-1 text-xs rounded mr-2 bg-purple-900 font-semibold text-gray-200 "
               onClick={() => setShowSecondMenu(false)}
             >
               Hide Menu
             </button>
           ) : (
             <button
-              className="px-4 py-1 text-sm mr-2 rounded bg-gray-900 font-bold text-gray-200 "
+              className="px-4 py-1 text-xs mr-2 rounded bg-gray-900 font-semibold text-gray-200 "
               onClick={() => setShowSecondMenu(true)}
             >
               Show Menu
