@@ -121,7 +121,7 @@ const App = () => {
               </button>
             )}
             <button className="px-4 py-2 text-sm rounded font-bold text-white" onClick={handleDeleteAllClick}>
-              {showDeleteButtons ? 'Save' : 'Edit'}
+              {showDeleteButtons ? 'Cancel' : 'Edit'}
             </button>
           </div>
         </div>
