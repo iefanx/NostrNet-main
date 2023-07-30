@@ -117,7 +117,7 @@ const App = () => {
           <div style={{ position: 'fixed', right: '5%', bottom: '0' }}>
           {showDeleteButtons && (
               <button className="px-4 py-2 ml-2 text-sm rounded font-bold text-white" onClick={handleDefaultClick}>
-                Default
+                Reset
               </button>
             )}
             <button className="px-4 py-2 text-sm rounded font-bold text-white" onClick={handleDeleteAllClick}>
