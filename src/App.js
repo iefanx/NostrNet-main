@@ -178,8 +178,8 @@ const App = () => {
             {memoizedEmbeds.map((embed) => (
               <button
                 key={embed.id}
-                className={`menu-item px-2 py-0 font-medium text-xs rounded ${
-                  embed.active ? 'bg-blue-600 text-sm py-2 hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
+                className={`menu-item px-2 py-1 font-medium text-xs rounded ${
+                  embed.active ? 'bg-blue-600 text-sm py-1 hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
                 }`}
                 onClick={embed.handleClick}
                 aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
