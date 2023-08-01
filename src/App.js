@@ -209,7 +209,7 @@ const App = () => {
 
       {showSecondMenu && (
         <nav className="flex justify-center mb-0">
-          <div className="grid grid-cols-4 gap-2 mt-2">
+          <div className="grid grid-cols-4 gap-2 mt-2 md:max-w-4xl md:grid-cols-8 lg:grid-cols-10">
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} style={{ position: 'relative', width: '85px' }}>
                 {showDeleteButtons && (
@@ -295,12 +295,6 @@ const getEmbedsData = () => {
 const getDefaultEmbedsData = () => {
   return [
     {
-      id: 'chess-embed',
-      url: 'https://jesterui.github.io/',
-      title: 'Chess',
-      active: false,
-    },
-    {
       id: 'coracle-embed',
       url: 'https://coracle.social/notes',
       title: 'Coracle',
@@ -334,6 +328,12 @@ const getDefaultEmbedsData = () => {
       id: 'nostrnests-embed',
       url: 'https://nostrnests.com/',
       title: 'NostrNests',
+      active: false,
+    },
+    {
+      id: 'chess-embed',
+      url: 'https://jesterui.github.io/',
+      title: 'Chess',
       active: false,
     },
     {
