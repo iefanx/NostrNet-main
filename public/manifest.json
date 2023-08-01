@@ -1,6 +1,11 @@
 {
-  "short_name": "NostrNet",
+    "manifest_version": 3,
   "name": "NostrNet",
+  "short_name": "NostrNet",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "icons": [
     {
       "src": "logo512.png",
