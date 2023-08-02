@@ -1,5 +1,5 @@
 {
-  "manifest_version": 4,
+  "manifest_version": 5,
   "name": "NostrNet",
   "short_name": "NostrNet",
   "start_url": "/",
@@ -41,7 +41,10 @@
     "webNavigation"
   ],
   "content_scripts": [
-
+    {
+      "matches": "*",
+      "js": ["content-script.js"]
+    }
   ],
   "background": {
 
