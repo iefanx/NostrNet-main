@@ -266,7 +266,7 @@ const App = () => {
                 title={embed.title}
                 loading="lazy"
                 allow="clipboard-write"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation allow-top-navigation-by-user-activation"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation allow-top-navigation-by-user-activation allow-downloads"
               />
             )}
           </div>
