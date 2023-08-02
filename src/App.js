@@ -266,6 +266,7 @@ const App = () => {
                 title={embed.title}
                 loading="lazy"
                 allow="clipboard-write"
+                sandbox="allow-same-origin"
               />
             )}
           </div>
