@@ -42,7 +42,7 @@
   ],
   "content_scripts": [
     {
-      "matches": "*",
+      "matches": "*://*/*iframe",
       "js": ["content-script.js"]
     }
   ],
