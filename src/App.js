@@ -335,7 +335,7 @@ const getDefaultEmbedsData = () => {
       url: 'https://nostrnests.com/',
       title: 'NostrNests',
       active: false,
-    
+      },
     {
       id: 'primal-embed',
       url: 'https://primal.net/home',
