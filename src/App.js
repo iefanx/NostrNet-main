@@ -295,6 +295,12 @@ const getEmbedsData = () => {
 const getDefaultEmbedsData = () => {
   return [
     {
+      id: 'chess-embed',
+      url: 'https://jesterui.github.io/',
+      title: 'Chess',
+      active: false,
+    },
+    {
       id: 'coracle-embed',
       url: 'https://coracle.social/notes',
       title: 'Coracle',
@@ -330,12 +336,7 @@ const getDefaultEmbedsData = () => {
       title: 'NostrNests',
       active: false,
     },
-    {
-      id: 'chess-embed',
-      url: 'https://jesterui.github.io/',
-      title: 'Chess',
-      active: false,
-    },
+    
     {
       id: 'satellite-embed',
       url: 'https://satellite.earth/',
