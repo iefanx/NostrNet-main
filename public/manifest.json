@@ -1,5 +1,5 @@
 {
-    "manifest_version": 4,
+  "manifest_version": 4,
   "name": "NostrNet",
   "short_name": "NostrNet",
   "start_url": "/",
@@ -8,23 +8,43 @@
   "background_color": "#000000",
   "icons": [
     {
-      "src": "logo512.png",
+      "src": "/logo192.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "web_accessible_resources": [
+  {
+    "resources": [
+      "scripts/*.js",
+      "nostr-provider.js"
+    ],
+    "matches": [
+      "<all_urls>"
+    ],
+    "use_dynamic_url": true
+  }
+],
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation"
+  ],
+  "content_scripts": [
+
+  ],
+  "background": {
+
+  }
+
 }
