@@ -266,7 +266,7 @@ const App = () => {
                 title={embed.title}
                 loading="lazy"
                 allow="clipboard-write"
-                sandbox="allow-same-origin allow-scripts"
+                sandbox="allow-same-origin allow-scripts allow-extensions safari-extension-allow-scripts"
               />
             )}
           </div>
