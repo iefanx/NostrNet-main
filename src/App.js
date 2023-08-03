@@ -273,6 +273,7 @@ const App = () => {
               className="embed-iframe"
               title={embed.title}
               allow="clipboard-write"
+              loading="lazy"
               sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation allow-top-navigation-by-user-activation allow-downloads"
             />
           </div>
