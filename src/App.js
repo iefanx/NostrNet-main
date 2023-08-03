@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Modal from './Modal';
@@ -13,6 +14,12 @@ const App = () => {
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
 
+  useEffect(() => {
+    const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
+    const storedEmbeds = storedEmbedsData ? JSON.parse(storedEmbedsData) : getEmbedsData();
+    setEmbeds(storedEmbeds);
+  }, []);
+
   const toggleEmbed = useCallback((embedId) => {
     setEmbeds((prevEmbeds) =>
       prevEmbeds.map((embed) => ({
@@ -22,6 +29,8 @@ const App = () => {
     );
     setButtonClicked(true);
   }, []);
+  
+  
 
   const addCustomEmbed = useCallback((url, title) => {
     const newEmbed = {
@@ -46,12 +55,6 @@ const App = () => {
     );
   }, [embeds]);
 
-  useEffect(() => {
-    const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
-    const storedEmbeds = storedEmbedsData ? JSON.parse(storedEmbedsData) : getEmbedsData();
-    setEmbeds(storedEmbeds);
-  }, []);
-
   const handleAddClick = useCallback(() => {
     setShowModal(true);
   }, []);
@@ -69,12 +72,9 @@ const App = () => {
     setShowDeleteButtons((prevState) => !prevState);
   }, []);
 
-  const handleDeleteClick = useCallback(
-    (embedId) => {
-      deleteCustomEmbed(embedId);
-    },
-    [deleteCustomEmbed]
-  );
+  const handleDeleteClick = useCallback((embedId) => {
+    deleteCustomEmbed(embedId);
+  }, [deleteCustomEmbed]);
 
   const handleHomeButtonClick = useCallback(() => {
     setEmbeds((prevEmbeds) =>
@@ -100,7 +100,6 @@ const App = () => {
     setShowDeleteButtons(false);
   }, []);
 
-
   return (
     <div className="bg-black text-white min-h-screen text-center flex flex-col justify-start items-center w-screen">
       {!buttonClicked && (
@@ -115,7 +114,7 @@ const App = () => {
             </h2>
           </div>
           <div style={{ position: 'fixed', right: '5%', bottom: '0' }}>
-          {showDeleteButtons && (
+            {showDeleteButtons && (
               <button className="px-4 py-2 ml-2 text-sm rounded font-bold text-white" onClick={handleDefaultClick}>
                 Reset
               </button>
@@ -129,27 +128,27 @@ const App = () => {
 
       {!embeds.some((embed) => embed.active) && !showSecondMenu ? (
         <nav className="flex justify-center mb-0">
-          <div className="grid grid-cols-3 gap-4 mt-2 mx-auto max-w-2xl md:max-w-4xl md:grid-cols-5 lg:grid-cols-8">
+          <div className="flex flex-wrap gap-2 mt-2 mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
             {memoizedEmbeds.map((embed) => (
-              <div key={embed.id} style={{ position: 'relative', width: '100px' }}>
+              <div key={embed.id} style={{ position: 'relative', minWidth: '100px' }}>
                 {showDeleteButtons && (
                   <button
-                    className="menu-item absolute bottom-6 right-0 left-2 px-1 py-1 font-medium text-xs rounded text-white"
+                    className="menu-item absolute bottom-2 right-0 px-0 py-0 font-lg text-xs rounded text-white transition bg-red-500 hover:bg-red-600"
                     onClick={() => handleDeleteClick(embed.id)}
-                    style={{ width: '100%', textAlign: 'right' }}
+                    style={{ width: '20px', height: '20px', lineHeight: '1', textAlign: 'center' }}
                   >
-                     𝕏
+                    𝕏
                   </button>
                 )}
                 <button
-                  className={`menu-item px-2 py-2 font-bold text-sm rounded ${
+                  className={`menu-item px-2 py-1 font-bold text-sm rounded ${
                     embed.active ? 'bg-gray-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-700'
-                  }`}
+                  } transition`}
                   onClick={embed.handleClick}
                   aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
                   style={{
-                    width: '100%',
-                    textAlign: 'center',
+                    minWidth: '100px',
+                    maxWidth: '150px',
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
@@ -162,14 +161,20 @@ const App = () => {
               </div>
             ))}
             {!embeds.some((embed) => embed.active) && (
-              <button
-                className={`px-4 py-2 text-sm rounded bg-purple-600 font-bold text-white ${
-                  buttonClicked ? 'text-sm' : ''
-                }`}
-                onClick={handleAddClick}
-              >
-                Add
-              </button>
+              <div>
+                <button
+                  className={`px-2 py-1 text-sm rounded bg-purple-600 font-bold text-white ${
+                    buttonClicked ? 'text-sm' : ''
+                  } transition`}
+                  onClick={handleAddClick}
+                  style={{
+                    minWidth: '100px',
+                    maxWidth: '150px',
+                  }}
+                >
+                  Add
+                </button>
+              </div>
             )}
           </div>
         </nav>
@@ -209,21 +214,21 @@ const App = () => {
 
       {showSecondMenu && (
         <nav className="flex justify-center mb-0">
-          <div className="grid grid-cols-4 gap-2 mt-2 md:max-w-4xl md:grid-cols-8 lg:grid-cols-10">
+          <div className="flex flex-wrap gap-1 mt-2 mx-auto max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} style={{ position: 'relative', width: '85px' }}>
                 {showDeleteButtons && (
                   <button
-                    className="menu-item absolute top-0 right-0 px-1 py-1 font-medium text-xs rounded bg-red-600 text-white"
+                    className="menu-item absolute top-0 right-0 px-0 py-0 font-medium text-xs rounded  text-black"
                     onClick={() => handleDeleteClick(embed.id)}
                     style={{ width: '100%', textAlign: 'center' }}
                   >
-                     𝕏
+                    𝕏
                   </button>
                 )}
                 <button
                   className={`menu-item px-1 py-1 font-medium text-xs rounded ${
-                    embed.active ? 'bg-blue-600 text-sm py-1  hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
+                    embed.active ? 'bg-blue-600 text-xs py-1  hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
                   }`}
                   onClick={embed.handleClick}
                   aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
@@ -241,8 +246,8 @@ const App = () => {
             ))}
             {!embeds.some((embed) => embed.active) && (
               <button
-                className={`px-4 py-2 text-sm rounded bg-purple-600 font-bold text-white ${
-                  buttonClicked ? 'text-sm' : ''
+                className={`px-1 py-1 text-xs rounded bg-purple-600 font-bold text-white ${
+                  buttonClicked ? 'text-xs' : ''
                 }`}
                 onClick={handleAddClick}
               >
@@ -256,22 +261,24 @@ const App = () => {
       <div className="full-width-container"></div>
       <div className="flex flex-col items-center mt-2">
         {memoizedEmbeds.map((embed) => (
-          <div key={embed.id} className={`embed-container ${embed.active ? 'active' : ''}`}>
-            {embed.active && (
-              <iframe
-                src={embed.url}
-                frameBorder="0"
-                scrolling="yes"
-                className="embed-iframe"
-                title={embed.title}
-                loading="lazy"
-                allow="clipboard-write"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation allow-top-navigation-by-user-activation allow-downloads"
-              />
-            )}
+          <div
+            key={embed.id}
+            className={`embed-container ${embed.active ? 'active' : ''}`}
+            style={{ display: embed.active ? 'block' : 'none' }}
+          >
+            <iframe
+              src={embed.url}
+              frameBorder="0"
+              scrolling="yes"
+              className="embed-iframe"
+              title={embed.title}
+              allow="clipboard-write"
+              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation allow-top-navigation-by-user-activation allow-downloads"
+            />
           </div>
         ))}
       </div>
+
 
       {showModal && (
         <Modal
