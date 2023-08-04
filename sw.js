@@ -3,8 +3,8 @@
 const CACHE_NAME = 'nostrnet-cache-v1';
 const urlsToCache = [
   '/',
-  '/path-to-your-page', // Replace with the actual path to your page, if needed
-  // Add any other static assets (like CSS, images, etc.) you want to cache here
+ // Replace with the actual path to your page, if needed
+
 ];
 
 self.addEventListener('install', (event) => {
