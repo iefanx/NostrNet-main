@@ -87,7 +87,9 @@ const App = () => {
   }, []);
 
   const memoizedEmbeds = useMemo(() => {
-    return embeds.map((embed) => ({
+    
+    const sortedEmbeds = embeds.slice().sort((a, b) => a.title.localeCompare(b.title));
+    return sortedEmbeds.map((embed) => ({
       ...embed,
       handleClick: () => toggleEmbed(embed.id),
     }));
@@ -322,6 +324,12 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
+      id: 'highlighter-embed',
+      url: 'https://highlighter.com/global/newest',
+      title: 'Highlighter',
+      active: false,
+    },
+    {
       id: 'nostrbuild-embed',
       url: 'https://nostr.build/',
       title: 'Nostr.Build',
@@ -337,6 +345,12 @@ const getDefaultEmbedsData = () => {
       id: 'nostrcheck-embed',
       url: 'https://nostrcheck.me/',
       title: 'NostrCheck',
+      active: false,
+    },
+    {
+      id: 'nostrit-embed',
+      url: 'https://nostrit.com/',
+      title: 'Nostrit',
       active: false,
     },
     {
@@ -368,6 +382,12 @@ const getDefaultEmbedsData = () => {
       id: 'snort-embed',
       url: 'https://snort.social/notes',
       title: 'Snort',
+      active: false,
+    },
+    {
+      id: 'stacker-embed',
+      url: 'https://stacker.news/',
+      title: 'Stacker',
       active: false,
     },
     {
