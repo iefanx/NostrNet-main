@@ -342,7 +342,7 @@ const getDefaultEmbedsData = () => {
     {
       id: 'nostryfied-embed',
       url: 'https://nostryfied.online/',
-      title: 'Nostr Backups',
+      title: 'Nostryfied',
       active: false,
     },
     {
