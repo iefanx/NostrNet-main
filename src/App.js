@@ -322,9 +322,9 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
-      id: 'listr-embed',
-      url: 'https://listr.lol/',
-      title: 'Listr',
+      id: 'nostrband-embed',
+      url: 'https://nostr.band/',
+      title: 'Nostr.Band',
       active: false,
     },
     {
@@ -334,9 +334,15 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
-      id: 'nostrbuild-embed',
-      url: 'https://nostr.build/',
-      title: 'Nostr.Build',
+      id: 'nostrcheck-embed',
+      url: 'https://nostrcheck.me/',
+      title: 'NostrCheck',
+      active: false,
+    },
+    {
+      id: 'nostryfied-embed',
+      url: 'https://nostryfied.online/',
+      title: 'Nostr Backups',
       active: false,
     },
     {
