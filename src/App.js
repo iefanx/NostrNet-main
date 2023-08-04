@@ -322,9 +322,9 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
-      id: 'nostrband-embed',
-      url: 'https://nostr.band/',
-      title: 'Nostr.Band',
+      id: 'nostrbuild-embed',
+      url: 'https://nostr.build/',
+      title: 'Nostr.Build',
       active: false,
     },
     {
