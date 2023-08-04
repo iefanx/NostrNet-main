@@ -330,6 +330,12 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
+      id: 'iris-embed',
+      url: 'https://iris.to/',
+      title: 'Iris',
+      active: false,
+    },
+    {
       id: 'nostrbuild-embed',
       url: 'https://nostr.build/',
       title: 'Nostr.Build',
