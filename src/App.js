@@ -236,7 +236,7 @@ const App = () => {
                 )}
                 <button
                   className={`menu-item px-0.5 py-0.5 font-medium text-xs rounded ${
-                    embed.active ? 'bg-blue-600 text-xs py-1  hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
+                    embed.active ? 'bg-blue-600 text-xs py-0.5  hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
                   }`}
                   onClick={embed.handleClick}
                   aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
