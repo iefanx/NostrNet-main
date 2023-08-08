@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Modal from './Modal';
-
+import DuckDuckGoSearchBar from './DuckDuckGoSearchBar';
 const EMBEDS_DATA_KEY = 'embedsData';
 
 const App = () => {
@@ -105,16 +104,21 @@ const App = () => {
   return (
     <div className="bg-black text-white min-h-screen text-center flex flex-col justify-start items-center w-screen">
       {!buttonClicked && (
-        <div style={{ position: 'relative', marginBottom: '2rem' }}>
+        <div style={{ position: 'relative', marginBottom: '.5rem' }}>
           <div>
             <h1 className="text-3xl font-serif mt-4 px-5 m-3">
               <span className="font-black">ℕ</span>
-              <span className="font-medium text-2xl">ostrNet</span>
+              <span className="font-medium  text-2xl">ostrNet</span>
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
               NostrNet.work, It offers a unified dashboard to manage all your Nostr web apps in one place.
+              
             </h2>
+            <div className="mt-5 ">
+      <DuckDuckGoSearchBar />
+      </div>
           </div>
+          
           <div style={{ position: 'fixed', right: '5%', bottom: '0' }}>
             {showDeleteButtons && (
               <button className="px-4 py-2 ml-2 text-sm rounded font-bold text-white" onClick={handleDefaultClick}>
@@ -127,10 +131,12 @@ const App = () => {
           </div>
         </div>
       )}
-
+      
       {!embeds.some((embed) => embed.active) && !showSecondMenu ? (
         <nav className="flex justify-center mb-0">
-          <div className="flex flex-wrap gap-2 mt-2 mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
+          
+          <div className="flex flex-wrap gap-2 mt-0 mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
+          
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} style={{ position: 'relative', minWidth: '100px' }}>
                 {showDeleteButtons && (
