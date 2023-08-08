@@ -107,7 +107,7 @@ const App = () => {
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div>
             <h1 className="text-3xl font-serif mt-4 px-5 m-3">
-              <span className="font-black">ℕ</span>
+              <span className="font-black"> 𝐍</span>
               <span className="font-medium  text-2xl">ostrNet</span>
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
@@ -135,7 +135,7 @@ const App = () => {
       {!embeds.some((embed) => embed.active) && !showSecondMenu ? (
         <nav className="flex justify-center mb-0">
           
-          <div className="flex flex-wrap gap-2 mt-0 mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
+          <div className="flex flex-wrap gap-3 mt-0 mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
           
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} style={{ position: 'relative', minWidth: '100px' }}>
@@ -149,7 +149,7 @@ const App = () => {
                   </button>
                 )}
                 <button
-                  className={`menu-item px-2 py-1 font-bold text-sm rounded ${
+                  className={`menu-item px-2 py-2 font-bold text-sm rounded ${
                     embed.active ? 'bg-gray-600 hover:bg-blue-700' : 'bg-gray-800 hover:bg-gray-700'
                   } transition`}
                   onClick={embed.handleClick}
@@ -171,7 +171,7 @@ const App = () => {
             {!embeds.some((embed) => embed.active) && (
               <div>
                 <button
-                  className={`px-2 py-1 text-sm rounded bg-purple-600 font-bold text-white ${
+                  className={`px-2 py-2 text-sm rounded bg-purple-600 font-bold text-white ${
                     buttonClicked ? 'text-sm' : ''
                   } transition`}
                   onClick={handleAddClick}
@@ -189,8 +189,8 @@ const App = () => {
       ) : (
         <div className="pt-1 mb-0">
           <div className="left-corner-container">
-            <a href="/path-to-your-page" className="px-4 py-1 text-sm font-bold text-gray-200">
-              ℕ
+            <a href="/path-to-your-page" className="px-4 py-1 text-md font-bold text-gray-200">
+              𝐍
             </a>
           </div>
           <a href="/" rel="noopener noreferrer">
@@ -235,7 +235,7 @@ const App = () => {
                   </button>
                 )}
                 <button
-                  className={`menu-item px-1 py-1 font-medium text-xs rounded ${
+                  className={`menu-item px-0.5 py-0.5 font-medium text-xs rounded ${
                     embed.active ? 'bg-blue-600 text-xs py-1  hover:bg-blue-700' : 'bg-gray-800 hover:bg-blue-700'
                   }`}
                   onClick={embed.handleClick}
