@@ -104,7 +104,7 @@ const App = () => {
   return (
     <div className="bg-black text-white min-h-screen text-center flex flex-col justify-start items-center w-screen">
       {!buttonClicked && (
-        <div style={{ position: 'relative', marginBottom: '.5rem' }}>
+        <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div>
             <h1 className="text-3xl font-serif mt-4 px-5 m-3">
               <span className="font-black">ℕ</span>
