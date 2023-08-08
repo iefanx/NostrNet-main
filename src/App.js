@@ -338,7 +338,7 @@ const getDefaultEmbedsData = () => {
     {
       id: 'iris-embed',
       url: 'https://iris.to/',
-      title: 'Iris',
+      title: 'Iris.to',
       active: false,
     },
     {
