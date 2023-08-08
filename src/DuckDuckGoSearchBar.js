@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const SearchForm = ({ onSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -13,18 +14,22 @@ const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-column items-center">
+    <form onSubmit={handleSubmit} className="flex flex-column  items-center">
       <input
         type="text"
         name="q"
         value={searchQuery}
         onChange={handleInputChange}
-        placeholder="Search DuckDuckGo"
-        className=" bg-gray-700 text-xs text-white px-1 py-1 focus:outline-none font-medium rounded"
+        placeholder="Search on Web"
+        className=" bg-gray-700 text-xs text-white px-1 py-1 text-center focus:outline-none font-medium rounded"
       />
-      <button type="submit" className="px-2   py-1 bg-blue-700 mx-2 rounded text-xs font-medium text-white hover:bg-blue-800 focus:outline-none">
+     <button
+        type="submit"
+        className="px-2 py-1 bg-blue-700 mx-2 rounded text-xs font-medium text-white hover:bg-blue-800 focus:outline-none"
+        style={{ display: 'none' }} // Add this inline style to hide the button
+    >
         Search
-      </button>
+    </button>
     </form>
   );
 };
