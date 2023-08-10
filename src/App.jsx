@@ -218,7 +218,7 @@ const App = () => {
 
       {showSecondMenu && (
         <nav className="flex justify-center mb-0">
-          <div className="flex flex-wrap gap-1 mt-2 mx-auto  max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
+          <div className="flex flex-wrap gap-1 mt-1 mx-auto  max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} style={{ position: 'relative', width: '85px' }}>
                 {showDeleteButtons && (
