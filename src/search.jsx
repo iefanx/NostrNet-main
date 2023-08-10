@@ -32,7 +32,7 @@ const DuckDuckGoSearchBar = () => {
   const handleSearchSubmit = () => {
     let searchUrl = '';
     if (searchEngine === 'duckduckgo') {
-      searchUrl = `https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`;
+      searchUrl = `https://search.brave.com/search?q=${encodeURIComponent(searchQuery)}`;
     } else if (searchEngine === 'nostrband') {
       searchUrl = `https://nostr.band/?q=${encodeURIComponent(searchQuery)}`;
     }
