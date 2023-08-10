@@ -193,7 +193,7 @@ const App = () => {
               <button
                 className="menu-item absolute  right-0 px-0 py-0 font-lg text-xs rounded-full text-white transition bg-red-500 hover:bg-red-600"
                 onClick={() => handleDeleteClick(embed.id)}
-                style={{ width: "20px", height: "20px", lineHeight: "1", textAlign: "center" }}
+                style={{ width: "20px", height: "20px", lineHeight: "1", textAlign: "center", , zIndex: 1 }}
               >
                 ⓧ
               </button>
