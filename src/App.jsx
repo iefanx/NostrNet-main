@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Modal from './Modal';
-import DuckDuckGoSearchBar from './DuckDuckGoSearchBar';
+import DuckDuckGoSearchBar from './search';
 
 const EMBEDS_DATA_KEY = 'embedsData';
 
@@ -13,6 +13,53 @@ const App = () => {
   const [title, setTitle] = useState('');
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
+
+
+
+  const Clock = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every 1000ms (1 second)
+
+    // Clean up the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
+
+
+  
+  // Format the current time as 12-hour format with AM/PM
+  const formattedTime = currentTime.toLocaleTimeString(undefined, {
+    hour: 'numeric',
+    minute: 'numeric',
+
+    hour12: true,
+  });
+
+  // Get the current hour from the date
+  const currentHour = currentTime.getHours();
+
+ let greeting = '';
+  if (currentHour >= 0 && currentHour < 12) {
+    greeting = 'Good Morning, Nostrich!';
+  } else if (currentHour >= 12 && currentHour < 17) {
+    greeting = 'Good Afternoon, Nostrich!';
+  } else {
+    greeting = 'Good Evening, Nostrich!';
+  }  // Determine the appropriate greeting based on the time
+ 
+
+  return (
+    <div className="clock">
+      <div className="time">{formattedTime}</div>
+      <div className="greeting">{greeting}</div>
+      
+    </div>
+  );
+};
+
 
 
   
@@ -104,18 +151,21 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen text-center flex flex-col justify-start items-center w-screen">
+    <div className="bg-[#131214] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
-          <div>
-            <h1 className="text-3xl font-serif mt-4 px-5 m-3">
+          <div className='text-left'>
+            <h1 className="text-3xl   font-serif mt-4 px-5 m-3">
               <span className="font-black"> 𝐍</span>
               <span className="font-medium  text-2xl">ostrNet</span>
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
-              NostrNet.work, It offers a unified dashboard to manage all your Nostr web apps in one PWA.
+             
               
             </h2>
+            <div className=" clock-container text-center">
+            <Clock />
+          </div>
             <div className="mt-5 ">
       <DuckDuckGoSearchBar />
       </div>
@@ -149,7 +199,7 @@ const App = () => {
               </button>
             )}
             <button
-              className={`menu-item px-2 py-3 font-bold text-sm rounded bg-[#191e24] hover:bg-gray-700`}
+              className={`menu-item px-2 py-3 font-bold text-sm shadow-lg rounded-sm bg-[#242225] hover:bg-gray-700 transition transform hover:scale-105 duration-300`}
               onClick={embed.handleClick}
               aria-label={`${embed.active ? "Hide" : "Show"} ${embed.title}`}
               style={{
@@ -158,12 +208,14 @@ const App = () => {
                 whiteSpace: "nowrap",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
+                transition: "background-color 0.3s, transform 0.3s",
               }}
             >
               <span className="embed-title" style={{ maxWidth: "100%" }}>
                 {embed.title}
               </span>
             </button>
+
           </div>
         ))}
         {!embeds.some((embed) => embed.active) && (
@@ -185,7 +237,7 @@ const App = () => {
       ) : (
         <div className="pt-1 mb-0">
           <div className="left-corner-container">
-            <a href="/path-to-your-page" className="px-4 py-1 text-md font-bold text-gray-200">
+            <a href="/" className="px-4 py-1 text-md font-bold text-gray-200">
               𝐍
             </a>
           </div>
@@ -217,7 +269,7 @@ const App = () => {
       )}
 
       {showSecondMenu && (
-        <nav className="flex justify-center ">
+        <nav className="flex justify-center mb-0">
           <div className="flex flex-wrap gap-1 mt-2 mx-auto  max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} style={{ position: 'relative', width: '85px' }}>
@@ -275,6 +327,10 @@ const App = () => {
       </div>
 
 
+
+
+
+
       {showModal && (
         <Modal
           url={url}
@@ -288,6 +344,7 @@ const App = () => {
     </div>
   );
 };
+
 
 const getEmbedsData = () => {
   const initialEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
