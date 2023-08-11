@@ -155,7 +155,7 @@ const App = () => {
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div className='text-left'>
-            <h1 className="text-3xl   font-serif mt-4 px-5 m-3">
+            <h1 className="text-3xl  font-serif mt-4 px-5 m-3">
               <span className="font-black"> 𝐍</span>
               <span className="font-medium  text-2xl">ostrNet</span>
             </h1>
@@ -193,7 +193,7 @@ const App = () => {
               <button
                 className="menu-item absolute  right-0 px-0 py-0 font-lg text-xs rounded-full text-white transition bg-red-500 hover:bg-red-600"
                 onClick={() => handleDeleteClick(embed.id)}
-                style={{ width: "20px", height: "20px", lineHeight: "1", textAlign: "center",  zIndex: 1 }}
+                style={{ width: "20px", height: "20px", lineHeight: "1", textAlign: "center", zIndex: 1 }}
               >
                 ⓧ
               </button>
@@ -279,7 +279,7 @@ const App = () => {
                     onClick={() => handleDeleteClick(embed.id)}
                     style={{ width: '100%', textAlign: 'center' }}
                   >
-                    𝕏
+                     ⓧ
                   </button>
                 )}
                 <button
@@ -326,9 +326,7 @@ const App = () => {
         ))}
       </div>
 
-
-
-
+  
 
 
       {showModal && (
