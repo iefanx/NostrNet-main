@@ -101,6 +101,12 @@ const App = () => {
     setShowDeleteButtons(false);
   }, []);
 
+   const [isDropdown2Open, setDropdown2Open] = useState(false);
+
+  const toggleDropdown2 = () => {
+    setDropdown2Open(!isDropdown2Open);
+  };
+
   return (
     <div className="bg-[#131214] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
       {!buttonClicked && (
@@ -121,6 +127,7 @@ const App = () => {
           </div>
             <div className="mt-2 ">
          <DuckDuckGoSearchBar />
+         
       </div>
           </div>
           
@@ -202,6 +209,8 @@ const App = () => {
               Home
             </button>
           </a>
+          
+              
 
           {showSecondMenu ? (
             <button
@@ -218,7 +227,40 @@ const App = () => {
               Show Menu
             </button>
           )}
+          <div className="inline-block left-0 px-1">
+            <button
+              type="button"
+              onClick={toggleDropdown2}
+              className="bg-[#303479] right-corner-container px-4 py-0.5 text-xs rounded font-semibold text-gray-200"
+            >
+              <span className="text-xs font-mono font-extrabold">AI</span>
+            </button>
+            {isDropdown2Open && (
+              <div className="absolute right-0 mr-2 mt-2 w-32 text-left  rounded-md shadow-lg z-10 bg-[#353237] ring-opacity-5">
+                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                  <a
+                    href="https://labs.perplexity.ai/"
+                    className="block px-4 py-2 text-xs font-semibold rounded-md font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                    rel="noopener noreferrer"
+                  >
+                    AI Chat
+                  </a>
+                  <a
+                    href="https://www.perplexity.ai/"
+                    className="block px-4 py-2 text-xs font-semibold rounded-md font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
+                    role="menuitem"
+                    rel="noopener noreferrer"
+                  >
+                    AI Search
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+          
         </div>
+        
       )}
 
       {showSecondMenu && (
@@ -279,6 +321,8 @@ const App = () => {
         ))}
       </div>
 
+
+      
   
 
 
