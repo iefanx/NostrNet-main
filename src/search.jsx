@@ -20,7 +20,7 @@ const searchEnginesConfig = {
   },
    Brave: {
     url: (query) => `https://search.brave.com/search?q=${encodeURIComponent(query)}`,
-    placeholder: 'Search on Brave Search',
+    placeholder: 'Search on Brave',
   },
   DDG: {
     url: (query) => `https://search.brave.com/search?q=${encodeURIComponent(query)}`,
