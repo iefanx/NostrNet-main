@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Modal from './Modal';
 import DuckDuckGoSearchBar from './search';
-
+import BlockNumberComponent from './maininfo';
 const EMBEDS_DATA_KEY = 'embedsData';
 
 const App = () => {
@@ -13,55 +13,6 @@ const App = () => {
   const [title, setTitle] = useState('');
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
-
-
-
-  const Clock = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000); // Update every 1000ms (1 second)
-
-    // Clean up the interval when the component is unmounted
-    return () => clearInterval(intervalId);
-  }, []);
-
-
-  
-  // Format the current time as 12-hour format with AM/PM
-  const formattedTime = currentTime.toLocaleTimeString(undefined, {
-    hour: 'numeric',
-    minute: 'numeric',
-
-    hour12: true,
-  });
-
-  // Get the current hour from the date
-  const currentHour = currentTime.getHours();
-
- let greeting = '';
-  if (currentHour >= 0 && currentHour < 12) {
-    greeting = 'Good Morning, Nostrich!';
-  } else if (currentHour >= 12 && currentHour < 17) {
-    greeting = 'Good Afternoon, Nostrich!';
-  } else {
-    greeting = 'Good Evening, Nostrich!';
-  }  // Determine the appropriate greeting based on the time
- 
-
-  return (
-    <div className="clock">
-      <div className="time">{formattedTime}</div>
-      <div className="greeting">{greeting}</div>
-      
-    </div>
-  );
-};
-
-
-
   
   useEffect(() => {
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
@@ -155,18 +106,19 @@ const App = () => {
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div className='text-left'>
-            <h1 className="text-3xl  font-serif mt-4 px-5 m-3">
+            <h1 className="text-2xl  font-serif mt-4 px-5 m-3 ">
               <span className="font-black"> 𝐍</span>
-              <span className="font-medium  text-2xl">ostrNet</span>
+              <span className="font-medium  text-xl">ostrNet</span>
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
              
               
             </h2>
             <div className=" clock-container text-center">
-            <Clock />
+
+            <BlockNumberComponent />
           </div>
-            <div className="mt-5 ">
+            <div className="mt-2 ">
       <DuckDuckGoSearchBar />
       </div>
           </div>
