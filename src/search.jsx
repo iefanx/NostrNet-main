@@ -42,6 +42,8 @@ const searchEnginesConfig = {
  
 };
 
+
+
 const DuckDuckGoSearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchEngine, setSearchEngine] = useState('Nostr');
@@ -62,6 +64,8 @@ const DuckDuckGoSearchBar = () => {
   };
 
   const placeholder = searchEnginesConfig[searchEngine].placeholder;
+
+  
 
   return (
     <div className="flex items-center justify-center">
@@ -95,7 +99,9 @@ const DuckDuckGoSearchBar = () => {
                 />
               </svg>
             </button>
+      
           </div>
+          
           {isDropdownOpen && (
             <div className="origin-top-right absolute right-0 mt-2 w-25 rounded-md  shadow-lg  z-10 bg-[#353237]  ring-opacity-5">
               <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
@@ -108,7 +114,11 @@ const DuckDuckGoSearchBar = () => {
                   >
                     {engine === 'Brave' ? 'Brave' : engine}
                   </button>
+                  
+                  
                 ))}
+                
+                
               </div>
             </div>
           )}
