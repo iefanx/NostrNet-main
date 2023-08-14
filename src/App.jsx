@@ -107,19 +107,20 @@ const App = () => {
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div className='text-left'>
             <h1 className="text-2xl  font-serif mt-4 px-5 m-3 ">
-              <span className="font-black"> 𝐍</span>
-              <span className="font-medium  text-xl">ostrNet</span>
+              <span className="  font-black"> 𝐍</span>
+              <span className=" font-medium  font-serif text-base">ostrNet</span>
+
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
              
-              
+            
             </h2>
             <div className=" clock-container text-center">
 
             <BlockNumberComponent />
           </div>
             <div className="mt-2 ">
-      <DuckDuckGoSearchBar />
+         <DuckDuckGoSearchBar />
       </div>
           </div>
           
@@ -187,15 +188,15 @@ const App = () => {
       </div>
     </nav>
       ) : (
-        <div className="pt-1 mb-0">
-          <div className="left-corner-container">
-            <a href="/" className="px-4 py-1 text-md font-bold text-gray-200">
+        <div className="pt-1 py-0 ">
+          <div className="left-corner-container ">
+            <a href="/" className="px-4 py-o text-md  font-bold text-gray-200">
               𝐍
             </a>
           </div>
           <a href="/" rel="noopener noreferrer">
             <button
-              className="px-4 py-1 text-xs mr-2 rounded bg-gray-900 font-semibold text-gray-200"
+              className="px-4 py-0.5 text-xs mr-2 rounded bg-[#242225] font-semibold text-gray-200"
               onClick={handleHomeButtonClick}
             >
               Home
@@ -204,14 +205,14 @@ const App = () => {
 
           {showSecondMenu ? (
             <button
-              className="px-4 py-1 text-xs rounded mr-2 bg-purple-900 font-semibold text-gray-200 "
+              className="px-2 py-0.5 text-xs rounded mr-2 bg-[#303479] font-semibold text-gray-200 "
               onClick={() => setShowSecondMenu(false)}
             >
               Hide Menu
             </button>
           ) : (
             <button
-              className="px-4 py-1 text-xs mr-2 rounded bg-gray-900 font-semibold text-gray-200 "
+              className="px-4 py-0.5 text-xs mr-2 rounded bg-[#242225] font-semibold text-gray-200 "
               onClick={() => setShowSecondMenu(true)}
             >
               Show Menu
@@ -235,7 +236,7 @@ const App = () => {
                   </button>
                 )}
                 <button
-                  className={`menu-item px-0.5 py-0.5 bg-[#191e24] hover:bg-[#303479] font-medium text-xs rounded ${
+                  className={`menu-item px-0.5 py-0.5 bg-[#242225] hover:bg-gray-700  font-medium text-xs rounded ${
                     embed.active ? 'bg-[#303479] text-xs py-0.5  ' : 'bg-[#191e24] hover:bg-[#303479]'
                   }`}
                   onClick={embed.handleClick}
