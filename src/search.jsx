@@ -63,6 +63,12 @@ const DuckDuckGoSearchBar = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
+    const [isDropdown2Open, setDropdown2Open] = useState(false);
+
+  const toggleDropdown2 = () => {
+    setDropdown2Open(!isDropdown2Open);
+  };
+
   const placeholder = searchEnginesConfig[searchEngine].placeholder;
 
   
@@ -75,23 +81,23 @@ const DuckDuckGoSearchBar = () => {
         onSubmit={handleSearchSubmit}
         placeholder={placeholder}
       />
-      <div className="ml-0 relative">
+      <div className="ml-0  relative">
         {/* Dropdown list for search engine selection */}
-        <div className="relative inline-block text-left">
-          <div>
+        <div className="relative top- inline-block text-left">
+          <div className="pt-0 ">
             <button
               type="button"
               onClick={toggleDropdown}
-              className="bg-[#353237] text-white t p-1 rounded-md focus:outline-none relative z-1"
+              className="bg-[#353237] text-white p-1 mt-1 rounded-md focus:outline-none relative z-1"
             >
               <span className="sr-only">Open options</span>
               <svg
-                className={`h-5 w-5  ${isDropdownOpen ? 'transform rotate-180' : ''}`}
+                className={`h-5 w-5 ${isDropdownOpen ? 'transform rotate-180' : ''}`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
-              >
+        >
                 <path
                   fillRule="evenodd"
                   d="M6.293 8.293a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
@@ -99,6 +105,18 @@ const DuckDuckGoSearchBar = () => {
                 />
               </svg>
             </button>
+            
+            <div className=" inline-block  px-2   ">
+              <button
+                type="button1"
+                onClick={toggleDropdown2}
+                className="bg-[#303479] text-white bottom-1 p-0.5 px-1.5 rounded-md focus:outline-none relative z-1 "
+              >
+                <span className="text-sm font-mono font-extrabold">AI</span>
+              </button>
+                  
+           
+            </div>
       
           </div>
           
@@ -110,7 +128,7 @@ const DuckDuckGoSearchBar = () => {
                     key={engine}
                     value={engine}
                     onClick={handleSearchEngineChange}
-                    className={`w-full text-left block px-2 py-2  text-sm rounded-md font-semibold hover:bg-gray-100 hover:text-gray-900 ${searchEngine === engine ? 'bg-gray-100 text-gray-900 hover:text-gray-900 ' : ''}`}
+                    className={`w-full text-left block px-2 py-2  text-sm rounded-md font-semibold text-gray-200 hover:bg-gray-100 hover:text-gray-900 ${searchEngine === engine ? 'bg-gray-100 text-gray-900 hover:text-gray-900 ' : ''}`}
                   >
                     {engine === 'Brave' ? 'Brave' : engine}
                   </button>
@@ -119,10 +137,42 @@ const DuckDuckGoSearchBar = () => {
                 ))}
                 
                 
+
+                
               </div>
             </div>
           )}
-        </div>
+           {isDropdown2Open && (
+            <div className="origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg z-10 bg-[#353237] ring-opacity-5">
+              <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                {/* Link list dropdown options */}
+    
+                <a
+                  href="https://labs.perplexity.ai/"
+                  className="block px-4 py-2 text-xs font-semibold rounded-md font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
+                  role="menuitem"
+    
+                  rel="noopener noreferrer"
+                >
+                  AI Chat
+                </a>
+    
+                <a
+                  href="https://www.perplexity.ai/"
+                  className="block px-4 py-2 text-xs font-semibold rounded-md font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
+                  role="menuitem"
+    
+                  rel="noopener noreferrer"
+                >
+                  Ai Search
+                </a>
+                
+    
+              </div>
+            </div>
+          )}
+
+          </div>  
       </div>
     </div>
   );
