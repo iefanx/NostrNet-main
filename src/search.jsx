@@ -24,7 +24,7 @@ const searchEnginesConfig = {
   },
   DDG: {
     url: (query) => `https://search.brave.com/search?q=${encodeURIComponent(query)}`,
-    placeholder: 'Search on duckduckgo',
+    placeholder: 'Search on Duckduckgo',
   },
   Google: {
     url: (query) => `https://www.google.com/search?q=${encodeURIComponent(query)}`,
