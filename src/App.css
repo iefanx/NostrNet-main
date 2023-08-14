@@ -217,6 +217,7 @@ body {
 .input-style::placeholder {
   color: #a0aec0;
   font-weight: 600;
+  font-family: monospace;
 }
 
 .input-style:focus {
