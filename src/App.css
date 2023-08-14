@@ -216,6 +216,7 @@ body {
 
 .input-style::placeholder {
   color: #a0aec0;
+  font-weight: 600;
 }
 
 .input-style:focus {
@@ -241,14 +242,4 @@ body {
   cursor: pointer;
 }
 
-/* Add this to your CSS file */
-.clock-container {
-  margin-top: 1rem;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #ffffff;
-}
 
-.greeting{
-  font-size: small;
-}
