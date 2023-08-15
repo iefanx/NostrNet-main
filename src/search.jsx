@@ -164,7 +164,7 @@ const DuckDuckGoSearchBar = () => {
     
                   rel="noopener noreferrer"
                 >
-                  Ai Search
+                  AI Search
                 </a>
                 
     
