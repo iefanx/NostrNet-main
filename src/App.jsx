@@ -15,15 +15,9 @@ const App = () => {
   const [title, setTitle] = useState('');
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
+  const [showTextModal, setShowTextModal] = useState(false);
+  const [, setTextModalContent] = useState('');
 
-const [showTextModal, setShowTextModal] = useState(false);
-const [, setTextModalContent] = useState('');
-
-
-
-
-
-  
   
   useEffect(() => {
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
@@ -463,12 +457,6 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
-      id: 'nostrcheck-embed',
-      url: 'https://nostrcheck.me/',
-      title: 'NostrCheck',
-      active: false,
-    },
-    {
       id: 'nostrit-embed',
       url: 'https://nostrit.com/',
       title: 'Nostrit',
@@ -505,12 +493,7 @@ const getDefaultEmbedsData = () => {
       title: 'Satellite',
       active: false,
     },
-    {
-      id: 'snort-embed',
-      url: 'https://snort.social/notes',
-      title: 'Snort',
-      active: false,
-    },
+  
     {
       id: 'stacker-embed',
       url: 'https://stacker.news/',
