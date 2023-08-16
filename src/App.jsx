@@ -3,6 +3,11 @@ import './App.css';
 import Modal from './Modal';
 import DuckDuckGoSearchBar from './search';
 import BlockNumberComponent from './maininfo';
+import NoteTakingApp from './NoteTakingApp';
+
+
+
+
 const EMBEDS_DATA_KEY = 'embedsData';
 
 const App = () => {
@@ -13,6 +18,15 @@ const App = () => {
   const [title, setTitle] = useState('');
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
+ // Add these state variables along with your existing state variables
+const [showTextModal, setShowTextModal] = useState(false);
+const [textModalContent, setTextModalContent] = useState('');
+
+
+
+
+
+  
   
   useEffect(() => {
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
@@ -106,6 +120,21 @@ const App = () => {
   const toggleDropdown2 = () => {
     setDropdown2Open(!isDropdown2Open);
   };
+
+  
+// Add these functions
+const openTextModal = (content) => {
+  setTextModalContent(content);
+  setShowTextModal(true);
+};
+
+const closeTextModal = () => {
+  setTextModalContent('');
+  setShowTextModal(false);
+};
+
+
+  
 
   return (
     <div className="bg-[#131214] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
@@ -227,12 +256,30 @@ const App = () => {
               Show Menu
             </button>
           )}
+        
+          <button
+                className="absolute right-8 px-1 py-1 top-1.5 text-xs font-semibold bg-gray-600 rounded-md font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
+                onClick={() => openTextModal("This is the text modal content.")}
+              >
+                <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.6602 10.44L20.6802 14.62C19.8402 18.23 18.1802 19.69 15.0602 19.39C14.5602 19.35 14.0202 19.26 13.4402 19.12L11.7602 18.72C7.59018 17.73 6.30018 15.67 7.28018 11.49L8.26018 7.30001C8.46018 6.45001 8.70018 5.71001 9.00018 5.10001C10.1702 2.68001 12.1602 2.03001 15.5002 2.82001L17.1702 3.21001C21.3602 4.19001 22.6402 6.26001 21.6602 10.44Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path opacity="0.4" d="M15.0603 19.3901C14.4403 19.8101 13.6603 20.1601 12.7103 20.4701L11.1303 20.9901C7.16034 22.2701 5.07034 21.2001 3.78034 17.2301L2.50034 13.2801C1.22034 9.3101 2.28034 7.2101 6.25034 5.9301L7.83034 5.4101C8.24034 5.2801 8.63034 5.1701 9.00034 5.1001C8.70034 5.7101 8.46034 6.4501 8.26034 7.3001L7.28034 11.4901C6.30034 15.6701 7.59034 17.7301 11.7603 18.7201L13.4403 19.1201C14.0203 19.2601 14.5603 19.3501 15.0603 19.3901Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path opacity="0.4" d="M12.6406 8.52979L17.4906 9.75979" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path opacity="0.4" d="M11.6602 12.3999L14.5602 13.1399" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+
+              </button>
+          
+       
+       
+
           <div className="inline-block left-0 px-1">
             <button
               type="button"
               onClick={toggleDropdown2}
-              className="bg-[#303479] right-corner-container px-4 py-0.5 text-xs rounded font-semibold text-gray-200"
+              className="bg-[#303479] right-corner-container px-1 py-1 text-xs rounded-md font-semibold text-gray-200"
             >
+              
               <span className="text-xs font-mono font-extrabold">AI</span>
             </button>
             {isDropdown2Open && (
@@ -321,10 +368,22 @@ const App = () => {
         ))}
       </div>
 
-
-      
-  
-
+    {showTextModal && (
+      <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="z-10 bg-[#131214] rounded-lg p-6 shadow-xl w-full   max-h-screen max-w-screen  overflow-y-auto">
+          
+          <div className="text-gray-100 relative">
+            <NoteTakingApp />
+            <button className="absolute top-2 right-2 text-gray-300 hover:text-white" onClick={closeTextModal}>
+              <svg className="w-4 h-4 font-bold fill-current" viewBox="0 0 24 24">
+                <path d="M19.06 5.63l-1.07-1.07L12 10.94 5.41 4.35 4.34 5.42 10.93 12l-6.59 6.59 1.07 1.07L12 13.06l6.59 6.59 1.07-1.07L13.06 12l6.59-6.59z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
 
       {showModal && (
         <Modal
@@ -345,6 +404,7 @@ const getEmbedsData = () => {
   const initialEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
   return initialEmbedsData ? JSON.parse(initialEmbedsData) : getDefaultEmbedsData();
 };
+
 
 
 const getDefaultEmbedsData = () => {
