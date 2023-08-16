@@ -204,7 +204,7 @@ const closeTextModal = () => {
               transition: "background-color 0.3s, transform 0.3s",
             }}
           >
-            <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-12 h-12 bg-[#6c6b6d] rounded-full mx-auto mb-1" />
+            <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-12 h-12 bg-[#323232] rounded-full mx-auto mb-1" />
             <span className="embed-title" style={{ maxWidth: "100%" }}>
               {embed.title}
             </span>
@@ -329,38 +329,30 @@ const closeTextModal = () => {
       )}
 
       {showSecondMenu && (
-        <nav className="flex justify-center mb-0">
-          <div className="flex flex-wrap gap-1 mt-2 mx-auto  max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
-            {memoizedEmbeds.map((embed) => (
-              <div key={embed.id} style={{ position: 'relative', width: '85px' }}>
-                {showDeleteButtons && (
-                  <button
-                    className="menu-item absolute top-0 right-0 px-0  py-0 font-medium text-xs rounded  text-black"
-                    onClick={() => handleDeleteClick(embed.id)}
-                    style={{ width: '100%', textAlign: 'center' }}
-                  >
-                     ⓧ
-                  </button>
-                )}
+  <nav className="flex justify-center mb-0">
+    <div className="flex flex-wrap gap-1 mt-2 mx-auto max-w-3xl md:max-w-4xl lg:max-w-6xl justify-center">
+          {memoizedEmbeds.map((embed) => (
+            <div key={embed.id} className="menu-item-container" style={{ position: 'relative', width: 'auto' }}>
+              {showDeleteButtons && (
                 <button
-                  className={`menu-item px-0.5 py-0.5 bg-[#242225] rounded-md hover:bg-gray-700  font-medium text-xs  ${
-                    embed.active ? 'bg-[#303479] text-xs py-0.5  ' : 'bg-[#191e24] hover:bg-[#303479]'
-                  }`}
-                  onClick={embed.handleClick}
-                  aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
-                  style={{
-                    width: '100%',
-                    textAlign: 'center',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                  }}
+                  className="delete-button absolute top-0 right-0 px-0 py-0 font-medium text-xs rounded text-black"
+                  onClick={() => handleDeleteClick(embed.id)}
                 >
-                  <span className="embed-title">{embed.title}</span>
+                  ⓧ
                 </button>
-              </div>
-            ))}
-            
+              )}
+              <button
+                className={`menu-item  font-semibold text-xs  rounded-full  text-gray-300 ${
+                  embed.active ? ' ' : ''
+                }`}
+                onClick={embed.handleClick}
+                aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
+              >
+                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-8 h-8 bg-[#323232]  rounded-full mx-auto mb-1 " />
+              </button>
+            </div>
+          ))}
+                
           </div>
         </nav>
       )}
@@ -467,12 +459,6 @@ const getDefaultEmbedsData = () => {
       id: 'nostrband-embed',
       url: 'https://nostr.band/',
       title: 'Nostr.Band',
-      active: false,
-    },
-    {
-      id: 'nostrcheck-embed',
-      url: 'https://nostrcheck.me/',
-      title: 'NostrCheck',
       active: false,
     },
     {
