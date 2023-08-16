@@ -27,7 +27,7 @@ body {
   top: 0;
   right: 0;
   margin-right: 4px;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 
@@ -178,7 +178,7 @@ body {
 }
 
 .button {
-  padding: 8px 16px;
+  padding: 9px 16px;
   border-radius: 4px;
   background-color: #007bff;
   color: #fff;
@@ -214,12 +214,12 @@ body {
 
 /* Add this CSS to your stylesheets */
 .input-style {
-  background-color: #353237;
+  background-color: #2b282c;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 12px;
   padding: 6px 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 9999px;
   outline: none;
   width: 200px;
   /* Take up full width on small screens */
