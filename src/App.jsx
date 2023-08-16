@@ -5,6 +5,7 @@ import DuckDuckGoSearchBar from './search';
 import BlockNumberComponent from './maininfo';
 import NoteTakingApp from './NoteTakingApp';
 
+
 const EMBEDS_DATA_KEY = 'embedsData';
 
 const App = () => {
@@ -90,14 +91,23 @@ const App = () => {
     setButtonClicked(false);
   }, []);
 
+
   const memoizedEmbeds = useMemo(() => {
-    
-    const sortedEmbeds = embeds.slice().sort((a, b) => a.title.localeCompare(b.title));
-    return sortedEmbeds.map((embed) => ({
+  const sortedEmbeds = embeds.slice().sort((a, b) => a.title.localeCompare(b.title));
+
+  return sortedEmbeds.map((embed) => {
+    const hostname = new URL(embed.url).hostname;
+    const iconUrl = `https://icon.horse/icon/${hostname}?fallback_text=000000&fallback_bg=ffffff&size=small&ignore_other_sizes=true&status_code_404=true`;
+
+    return {
       ...embed,
       handleClick: () => toggleEmbed(embed.id),
-    }));
-  }, [embeds, toggleEmbed]);
+      iconUrl: iconUrl,
+    };
+  });
+}, [embeds, toggleEmbed]);
+
+
 
   const handleDefaultClick = useCallback(() => {
     localStorage.removeItem(EMBEDS_DATA_KEY);
@@ -123,6 +133,8 @@ const closeTextModal = () => {
   setTextModalContent('');
   setShowTextModal(false);
 };
+
+
 
 
   
@@ -166,50 +178,51 @@ const closeTextModal = () => {
       )}
       
       {!embeds.some((embed) => embed.active) && !showSecondMenu ? (
-       <nav className="flex justify-center mb-0">
-      <div className="flex flex-wrap gap-3 mt-0 mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-6xl justify-center">
-        {memoizedEmbeds.map((embed) => (
-          <div key={embed.id} style={{ position: "relative", minWidth: "100px" }}>
-            {showDeleteButtons && (
-              <button
-                className="menu-item absolute  right-0 px-0 py-0 font-lg text-xs rounded-full text-white transition bg-red-500 hover:bg-red-600"
-                onClick={() => handleDeleteClick(embed.id)}
-                style={{ width: "20px", height: "20px", lineHeight: "1", textAlign: "center", zIndex: 1 }}
-              >
-                ⓧ
-              </button>
-            )}
+  <nav className="flex justify-center mb-0">
+    <div className="flex flex-wrap gap-1 mt-0 mx-auto w-full max-w-4xl md:max-w-4xl lg:max-w-6xl justify-center">
+      {memoizedEmbeds.map((embed) => (
+        <div key={embed.id} style={{ position: "relative", minWidth: "80px" }}>
+          {showDeleteButtons && (
             <button
-              className={`menu-item px-2 py-3 font-bold text-sm shadow-lg rounded-lg bg-[#242225] hover:bg-gray-700 transition transform hover:scale-105 duration-300`}
-              onClick={embed.handleClick}
-              aria-label={`${embed.active ? "Hide" : "Show"} ${embed.title}`}
-              style={{
-                minWidth: "100px",
-                maxWidth: "150px",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                transition: "background-color 0.3s, transform 0.3s",
-              }}
+              className="menu-item absolute right-0 px-0 py-0 font-lg text-xs rounded-full text-white transition bg-red-500 hover:bg-red-600"
+              onClick={() => handleDeleteClick(embed.id)}
+              style={{ width: "20px", height: "20px", lineHeight: "1", textAlign: "center", zIndex: 1 }}
             >
-              <span className="embed-title" style={{ maxWidth: "100%" }}>
-                {embed.title}
-              </span>
+              ⓧ
             </button>
-
-          </div>
-        ))}
+          )}
+          <button
+            className={`menu-item px-0 py-1 font-semibold text-xs rounded-lg text-gray-300`}
+            onClick={embed.handleClick}
+            aria-label={`${embed.active ? "Hide" : "Show"} ${embed.title}`}
+            style={{
+              minWidth: "80px",
+              maxWidth: "120px",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              transition: "background-color 0.3s, transform 0.3s",
+            }}
+          >
+            <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-12 h-12 bg-[#6c6b6d] rounded-full mx-auto mb-1" />
+            <span className="embed-title" style={{ maxWidth: "100%" }}>
+              {embed.title}
+            </span>
+          </button>
+        </div>
+      ))}
         {!embeds.some((embed) => embed.active) && (
           <div>
             <button
-              className={`px-2 py-3 text-sm rounded-md bg-[#303479] font-bold text-white`}
+              className={`inline-block px-0 py-1  font-semibold text-xs rounded-lg text-gray-300`}
               onClick={handleAddClick}
-              style={{
-                minWidth: "100px",
-                maxWidth: "150px",
-              }}
+              
             >
-              Add
+              <svg width="70px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9V11H9C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13H11V15C11 15.5523 11.4477 16 12 16C12.5523 16 13 15.5523 13 15V13H15C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11H13V9ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="#323232"/>
+              </svg>
+             
             </button>
           </div>
         )}
@@ -457,6 +470,12 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
+      id: 'nostrcheck-embed',
+      url: 'https://nostrcheck.me/',
+      title: 'NostrCheck',
+      active: false,
+    },
+    {
       id: 'nostrit-embed',
       url: 'https://nostrit.com/',
       title: 'Nostrit',
@@ -493,7 +512,6 @@ const getDefaultEmbedsData = () => {
       title: 'Satellite',
       active: false,
     },
-  
     {
       id: 'stacker-embed',
       url: 'https://stacker.news/',
@@ -512,12 +530,7 @@ const getDefaultEmbedsData = () => {
       title: 'Zap.Stream',
       active: false,
     },
-    {
-      id: 'zapstr-embed',
-      url: 'https://zapstr.live/',
-      title: 'Zapstr',
-      active: false,
-    },
+    
     {
       id: 'zaplife-embed',
       url: 'https://zaplife.lol/',
