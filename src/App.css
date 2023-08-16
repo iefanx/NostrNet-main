@@ -86,8 +86,8 @@ body {
 }
 
 .modal {
-  background-color: #fff;
-  padding: 20px;
+  
+  padding: 0px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 2;
@@ -202,7 +202,12 @@ body {
   /* Add any other necessary styles for this container */
 }
 
-
+.modal-box{
+  background-color: #131214;
+}
+.m{
+  background-color: #333;
+}
 
 
 
@@ -231,10 +236,15 @@ body {
   background-color: #353237;
 }
 
-/* Increase width on medium and larger screens */
 @media (min-width: 768px) {
   .input-style {
     width: 700px;
+  }
+}
+/* Increase width on medium and larger screens */
+@media (min-width: 668px) {
+  .input-style {
+    width: 500px;
   }
 }
 
