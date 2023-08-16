@@ -84,7 +84,7 @@ const NoteTakingApp = () => {
           placeholder="Enter note content"
           className="block w-full p-2 h-32 border rounded focus:outline-none focus:border-blue-500 bg-[#242225] text-gray-300"
         />
-        <button onClick={saveNote} className="btn px-2 py-2 rounded-md text-gray-300 bg-[#303479] m-4">
+        <button onClick={saveNote} className="btn px-2 py-2 text-semibold rounded-md text-gray-300 bg-[#303479] m-4">
           Save Note
         </button>
         
