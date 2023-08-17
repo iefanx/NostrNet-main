@@ -510,12 +510,7 @@ const getDefaultEmbedsData = () => {
       title: 'Stemstr',
       active: false,
     },
-    {
-      id: 'zapstream-embed',
-      url: 'https://zap.stream/',
-      title: 'Zap.Stream',
-      active: false,
-    },
+   
     
     {
       id: 'zaplife-embed',
