@@ -485,12 +485,7 @@ const getDefaultEmbedsData = () => {
       title: 'NostrCheck',
       active: false,
       },
-    {
-      id: 'noypaywall-embed',
-      url: 'https://www.removepaywall.com/',
-      title: 'NoPaywall',
-      active: false,
-      },
+    
     {
       id: 'primal-embed',
       url: 'https://primal.net/home',
