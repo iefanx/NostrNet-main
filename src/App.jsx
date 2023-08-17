@@ -480,6 +480,12 @@ const getDefaultEmbedsData = () => {
       active: false,
       },
     {
+      id: 'nostrcheck-embed',
+      url: 'https://nostrcheck.me//',
+      title: 'NostrCheck',
+      active: false,
+      },
+    {
       id: 'noypaywall-embed',
       url: 'https://www.removepaywall.com/',
       title: 'NoPaywall',
