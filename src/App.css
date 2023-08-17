@@ -222,7 +222,7 @@ body {
   border: none;
   border-radius: 9999px;
   outline: none;
-  width: 200px;
+  width: 250px;
   /* Take up full width on small screens */
   transition: background-color 0.2s, color 0.2s;
 }
@@ -245,7 +245,7 @@ body {
 /* Increase width on medium and larger screens */
 @media (min-width: 668px) {
   .input-style {
-    width: 500px;
+    width: 600px;
   }
 }
 
@@ -260,6 +260,3 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-
-
-
