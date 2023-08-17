@@ -56,7 +56,7 @@ const DuckDuckGoSearchBar = () => {
 
       {/* Modal */}
       {modalContent && (
-        <div className="fixed inset-3  items-center pt-7 justify-center bg-black bg-opacity-50 z-10">
+        <div className="fixed inset-3  items-center pt-7 justify-center bg-opacity-50 z-10">
           <div className=" h-full  w-full  rounded-lg">
             <button onClick={closeModal}  className=" absolute top-0  font-mono font-semibold rounded-full text-black bg-gray-300 right-2">
               <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
