@@ -97,7 +97,7 @@ const App = () => {
 
   return sortedEmbeds.map((embed) => {
     const hostname = new URL(embed.url).hostname;
-    const iconUrl = `https://icon.horse/icon/${hostname}?fallback_text=000000&fallback_bg=ffffff&size=small&ignore_other_sizes=true&status_code_404=true`;
+    const iconUrl = ` https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${hostname}&size=128`;
 
     return {
       ...embed,
@@ -430,12 +430,7 @@ const getDefaultEmbedsData = () => {
       title: 'Nostr.Band',
       active: false,
     },
-    {
-      id: 'nostrit-embed',
-      url: 'https://nostrit.com/',
-      title: 'Nostrit',
-      active: false,
-    },
+    
     {
       id: 'nostryfied-embed',
       url: 'https://nostryfied.online/',
@@ -478,6 +473,12 @@ const getDefaultEmbedsData = () => {
       id: 'stemstr-embed',
       url: 'https://www.stemstr.app/',
       title: 'Stemstr',
+      active: false,
+    },
+    {
+      id: 'zapstream-embed',
+      url: 'https://zap.stream/',
+      title: 'Zap.Stream',
       active: false,
     },
    
