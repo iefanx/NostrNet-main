@@ -228,7 +228,7 @@ const handleFileUpload = (event) => {
         />
         <div className="flex space-x-1">
             <button onClick={downloadNotes} className="px-1 pt-3 bg-transparent font-extrabold rounded-md text-xs text-gray-300  ">
-              Download Data
+              Download
             </button>
             <input
               type="file"
