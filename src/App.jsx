@@ -97,8 +97,7 @@ const App = () => {
 
   return sortedEmbeds.map((embed) => {
     const hostname = new URL(embed.url).hostname;
-    const iconUrl = ` https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${hostname}&size=128`;
-
+    const iconUrl = `https://icon.horse/icon/${hostname}`;
     return {
       ...embed,
       handleClick: () => toggleEmbed(embed.id),
