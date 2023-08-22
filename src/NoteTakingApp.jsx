@@ -248,7 +248,7 @@ const handleFileUpload = (event) => {
           .map((note) => (
             <li key={note.id} className="bg-[#242225] p-4 rounded shadow">
               <h3 className="text-blue-400 text-sm font-semibold mb-2">{note.title}</h3>
-              <p className="text-gray-300 text-xs  mb-2">{note.content}</p>
+              <p className="text-gray-300 text-xs font-semibold  mb-2">{note.content}</p>
               <div className="flex justify-center ">
                 <button onClick={() => editNote(note.id)} className="text-blue-400  mr-10">
                   Edit
