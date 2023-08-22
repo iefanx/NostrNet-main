@@ -97,7 +97,7 @@ const App = () => {
 
   return sortedEmbeds.map((embed) => {
     const hostname = new URL(embed.url).hostname;
-    const iconUrl = `https://icon.horse/icon/${hostname}?fallback_text=000000&fallback_bg=ffffff&size=small&ignore_other_sizes=true&status_code_404=true`;
+    const iconUrl = `https://icon.horse/icon/${hostname}`;
 
     return {
       ...embed,
