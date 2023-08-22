@@ -102,26 +102,42 @@ const NoteTakingApp = () => {
 
 
   const downloadNotes = () => {
-  const notesText = searchResults
-    .map((note, index) => {
-      return `
-Note ${index + 1}:
-Title: ${note.title}
-Content: ${note.content}
-------------------------------
-      `;
-    })
-    .join('\n');
-
-  const blob = new Blob([notesText], { type: 'text/plain' });
+  const dataToDownload = JSON.stringify(searchResults);
+  const blob = new Blob([dataToDownload], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'notes.txt';
+  a.download = 'notes.json';
   a.click();
 
   URL.revokeObjectURL(url);
+};
+
+const restoreNotes = (data) => {
+  try {
+    const parsedData = JSON.parse(data);
+    if (Array.isArray(parsedData)) {
+      // Set the parsed data as the new notes
+      setNotes(parsedData);
+      setSearchResults(parsedData);
+      alert('Data restored successfully.');
+    } else {
+      throw new Error('Invalid data format.');
+    }
+  } catch (error) {
+    console.error('Error restoring data:', error);
+    alert('Error restoring data. Please make sure the data is in valid JSON format.');
+  }
+};
+
+const handleFileUpload = (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    restoreNotes(event.target.result);
+  };
+  reader.readAsText(file);
 };
 
 
@@ -176,62 +192,78 @@ Content: ${note.content}
   };
 
    return (
-     <div className="min-h-screen py-2 flex text-white justify-center items-center">
-      <div className="max-w-md w-full rounded-lg">
-        <h1 className="text-lg text-center mt-3 font-bold mb-4">Quick Notes (beta)</h1>
+    <div className="min-h-screen flex flex-col bg-[#131214] items-center">
+      <div className="w-screen rounded-lg p-4 bg-[#131214] text-white">
+        <h1 className="text-lg text-center font-bold mb-4">Quick Notes (beta)</h1>
         <div className="mb-4">
           <input
             type="text"
             value={noteTitle}
-            onChange={e => setNoteTitle(e.target.value)}
+            onChange={(e) => setNoteTitle(e.target.value)}
             placeholder="Enter note title"
-            className="block w-full p-2 border rounded focus:outline-none focus:border-blue-500 bg-[#242225] text-gray-300"
+            className="w-full p-2 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#242225] text-white border-none"
           />
         </div>
         <textarea
           value={noteContent}
-          onChange={e => setNoteContent(e.target.value)}
+          onChange={(e) => setNoteContent(e.target.value)}
           placeholder="Enter note content"
-          className="block w-full p-2 h-32 border rounded focus:outline-none focus:border-blue-500 bg-[#242225] text-gray-300"
+          className="w-full p-2 h-32 border text-xs font-bold rounded focus:outline-none focus:border-blue-500 bg-[#242225] text-white border-none"
         />
-        <button onClick={saveNote} className=" px-1 py-1 rounded-md text-gray-300 bg-[#303479] m-4">
-          Save Note
-        </button>
-        
+        <div className="flex justify-center items-center mt-4">
+          <div>
+            <button onClick={saveNote} className="px-2 py-1 rounded-md  font-bold text-sm  text-black bg-gray-300 ">
+              Save Note
+            </button>
+          </div>
+        </div>
+
 
         <input
           type="text"
           value={searchQuery}
           onChange={handleSearch}
           placeholder="Search notes..."
-          className="input input-bordered  block  bg-[#242225]  w-full "
+          className="w-full p-1 mt-4 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#242225] text-white border-none"
         />
-         <button onClick={downloadNotes} className=" flex  px-1 right-0 rounded-md text-gray-300 bg-[#303479] ">
-          Download Data
-        </button>
+        <div className="flex space-x-1">
+            <button onClick={downloadNotes} className="px-1 pt-3 bg-transparent font-extrabold rounded-md text-xs text-gray-300  ">
+              Download Data
+            </button>
+            <input
+              type="file"
+              accept=".json"
+              onChange={handleFileUpload}
+              className="hidden"
+              id="fileInput"
+            />
+            <label htmlFor="fileInput" className="px-1 pt-3  rounded-md text-xs text-gray-300 font-extrabold   cursor-pointer">
+              Restore
+            </label>
+          </div>
 
-        <ul id="notesList" className="mt-2">
-          {searchResults
-            .sort((a, b) => b.id - a.id)
-            .map((note) => (
-              <li key={note.id} className="bg-[#242225] p-2 mb-2 rounded shadow">
-                <h3 className="text-blue-400 text-left text-md font-semibold">{note.title}</h3>
-                <p className="text-gray-300 text-left text-sm mb-2 mt-1">{note.content}</p>
-                <div className="flex justify-end mt-2">
-                  <button onClick={() => editNote(note.id)} className="text-blue-400 mr-4">
-                    Edit
-                  </button>
-                  <button onClick={() => deleteNote(note.id)} className="text-red-400">
-                    Delete
-                  </button>
-                </div>
-              </li>
-            ))}
-        </ul>
+       <ul id="notesList" className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        {searchResults
+          .sort((a, b) => b.id - a.id) 
+          .map((note) => (
+            <li key={note.id} className="bg-[#242225] p-4 rounded shadow">
+              <h3 className="text-blue-400 text-sm font-semibold mb-2">{note.title}</h3>
+              <p className="text-gray-300 text-xs  mb-2">{note.content}</p>
+              <div className="flex justify-center ">
+                <button onClick={() => editNote(note.id)} className="text-blue-400  mr-10">
+                  Edit
+                </button>
+                <button onClick={() => deleteNote(note.id)} className="text-red-400">
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+      </ul>
+
 
       </div>
     </div>
   );
 };
-
 export default NoteTakingApp;
