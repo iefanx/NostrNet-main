@@ -21,14 +21,14 @@ const Modal = ({ url, title, setUrl, setTitle, handleSaveClick, handleClose }) =
   };
 
   return (
-    <div className="fixed inset-0 flex items-start justify-center z-50">
-      <div className="bg-gray-700 rounded shadow-lg p-6 w-96 mt-40">
-        <h2 className="text-sm font-semibold mb-4">Add new WebApps of your choice. You can also
+    <div className="fixed inset-0  flex items-start justify-center z-50">
+      <div className="bg-[#2b282c] rounded shadow-lg p-6 w-96 mt-40">
+        <h2 className="text-xs font-semibold mb-4">Add new WebApps of your choice. You can also
          discover the latest Nostr services by clicking the 'App Store' button and
           copying/pasting the link here.</h2>
         <input
           type="url"
-          className="w-full py-2 px-4 text-gray-500 rounded border border-gray-300 mb-4"
+          className=" input-style2 w-full py-2 px-4 text-gray-500 rounded border border-gray-300 mb-4"
           placeholder="https://"
           value={url}
           onChange={handleUrlChange}
@@ -37,26 +37,26 @@ const Modal = ({ url, title, setUrl, setTitle, handleSaveClick, handleClose }) =
         {urlWarning && <p className="text-red-500 mb-2">{urlWarning}</p>}
         <input
           type="text"
-          className="w-full py-2 px-4 text-gray-500 rounded border border-gray-300 mb-4"
+          className="input-style2 w-full py-2 px-4 text-gray-500 rounded border border-gray-300 mb-4"
           placeholder="Website Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <div className="flex justify-between">
           <a href="https://nostrapp.link/" rel="noopener noreferrer">
-            <button className="px-4 py-1 text-sm rounded bg-purple-700 font-bold text-gray-200">
+            <button className="px-4 py-1 text-sm rounded bg-gray-600 font-bold text-gray-200">
               App Store
             </button>
           </a>
           <div>
             <button
-              className="py-1.5 px-4 font-bold bg-blue-600 text-sm text-white rounded mr-2"
+              className="py-1.5 px-4 font-bold bg-[#303479] text-sm text-white rounded mr-2"
               onClick={handleSaveClick}
               disabled={!url.startsWith('http')}
             >
               Save
             </button>
-            <button className="py-1.5 px-4 font-bold text-sm bg-gray-500 text-gray-100 rounded" onClick={handleClose}>
+            <button className="py-1.5 px-4 font-bold text-sm bg-gray-700 text-gray-100 rounded" onClick={handleClose}>
               Cancel
             </button>
           </div>
