@@ -60,157 +60,6 @@ body {
   /* Optionally, you can add other positioning properties if needed */
 }
 
-/* Add any other CSS styles for the rest of your component elements if required */
-
-
-
-.modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.modal {
-  
-  padding: 0px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 2;
-}
-
-.modal-title {
-  margin-top: 0;
-  font-size: 24px;
-}
-
-.modal-input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.modal-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.modal-button {
-  margin-left: 10px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.modal-button-save {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.modal-button-cancel {
-  background-color: #ccc;
-  color: #333;
-}
-
-
-
-/* Modal Styles */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
-}
-
-.modal-container {
-  width: 95%;
-  margin: 0 auto;
-  background-color: #050505;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 20;
-  overflow-y: auto;
-}
-
-.modal-content {
-  padding: 20px;
-}
-
-.input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 12px;
-}
-
-.button {
-  padding: 9px 16px;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
-
-.button-secondary {
-  background-color: #ced4da;
-  color: #333;
-  margin-left: 8px;
-}
-
-/* Centering the modal buttons */
-.modal-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.flex.flex-col.items-center {
-  width: 100%; /* Set the width to 100% to make it occupy the full width of the screen */
-  /* Add any other necessary styles for this container */
-}
-
-.modal-box{
-  background-color: #131214;
-}
-.m{
-  background-color: #333;
-}
-
-
-
 
 
 /* Add this CSS to your stylesheets */
@@ -222,16 +71,28 @@ body {
   border: none;
   border-radius: 9999px;
   outline: none;
-  width: 250px;
+  width: 220px;
   /* Take up full width on small screens */
   transition: background-color 0.2s, color 0.2s;
 }
 
 .input-style::placeholder {
   color: #a0aec0;
-  font-weight: 600;
-  font-family: monospace;
+  font-weight: bold;
+
 }
+.input-style2 {
+  background-color: #625d64;
+  color: #ffffff;
+  font-size: 12px;
+  border: none;
+  border-radius: 9px;
+  outline: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+
+
 
 .input-style:focus {
   background-color: #353237;
@@ -239,13 +100,13 @@ body {
 
 @media (min-width: 768px) {
   .input-style {
-    width: 700px;
+    width: 600px;
   }
 }
 /* Increase width on medium and larger screens */
 @media (min-width: 668px) {
   .input-style {
-    width: 600px;
+    width: 500px;
   }
 }
 
@@ -260,3 +121,100 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+
+.ext-model {
+  transition: opacity 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+ 
+}
+.close-all-button {
+    position: absolute;
+      top: 5px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #ffffff;
+      cursor: pointer;
+
+  }
+
+.ext-model.open {
+  display: flex;
+}
+
+.ext-model-content {
+  background-color: #1c1c1e;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 25px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.website-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.website-button {
+  background-color: #4a4a4d;
+  color: #ffffff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+
+.website-button:hover {
+  background-color: #323235;
+}
+
+.iframe-container2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 70vh;
+  width: screen;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.embed-iframe2 {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
