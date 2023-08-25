@@ -21,7 +21,7 @@ const DuckDuckGoSearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const searchUrl = `https://nostr.band/?q=${encodeURIComponent(searchQuery)}`;
-    setModalContent(<iframe src={searchUrl} title="Search Results" className="w-full bg-[#18181a] rounded-xl  px-1 h-full" />);
+    setModalContent(<iframe src={searchUrl} title="Search Results" className="w-full  rounded-xl  px-1 h-full" />);
   };
   const [extModelOpen, setExtModelOpen] = useState(false);
 
