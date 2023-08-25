@@ -140,7 +140,7 @@ const closeTextModal = () => {
   
 
   return (
-    <div className="bg-[#131214] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
+    <div className="bg-[#18181a] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div className='text-left'>
@@ -204,7 +204,7 @@ const closeTextModal = () => {
                   transition: "background-color 0.3s, transform 0.3s",
                 }}
               >
-                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-14 h-14 shadow  bg-[#323232] rounded-full mx-auto mb-1" />
+                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-14 h-14 shadow-lg  bg-[#252528] rounded-full mx-auto mb-1" />
                 <span className="embed-title shadow" style={{ maxWidth: "100%" }}>
                   {embed.title}
                 </span>
@@ -220,7 +220,7 @@ const closeTextModal = () => {
                 >
                   <svg width="65px" height="65px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="24" height="24" fill=""/>
-                  <path fillRule="evenodd" clipRule="evenodd" d="M13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9V11H9C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13H11V15C11 15.5523 11.4477 16 12 16C12.5523 16 13 15.5523 13 15V13H15C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11H13V9ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="#323232"/>
+                  <path fillRule="evenodd" clipRule="evenodd" d="M13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9V11H9C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13H11V15C11 15.5523 11.4477 16 12 16C12.5523 16 13 15.5523 13 15V13H15C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11H13V9ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="#252528"/>
                   </svg>
                   Add
                 
@@ -230,7 +230,7 @@ const closeTextModal = () => {
           </div>
         </nav>
       ) : (
-        <div className="pt-1 py-0 ">
+        <div className="pt-1 nav-bar py-0  shadow rounded ">
           <div className="left-corner-container ">
             <a href="/" className="px-4 py-o text-md  font-bold text-gray-200">
               𝐍
@@ -300,7 +300,7 @@ const closeTextModal = () => {
       )}
 
       {showSecondMenu && (
-      <nav className="flex justify-center mb-0">
+      <nav className="flex justify-center  mb-0">
         <div className="flex flex-wrap gap-1 mt-2 mx-auto max-w-3xl md:max-w-4xl lg:max-w-6xl justify-center">
           {memoizedEmbeds.map((embed) => (
             <div key={embed.id} className="menu-item-container" style={{ position: 'relative', width: 'auto' }}>
@@ -328,31 +328,33 @@ const closeTextModal = () => {
         </nav>
       )}
 
-      <div className="full-width-container"></div>
-      <div className="flex flex-col items-center mt-0">
-        {memoizedEmbeds.map((embed) => (
-          <div
-            key={embed.id}
-            className={`embed-container ${embed.active ? 'active' : ''}`}
-            style={{ display: embed.active ? 'block' : 'none' }}
-          >
-            <iframe
-              src={embed.url}
-              frameBorder="0"
-              scrolling="yes"
-              className="embed-iframe"
-              title={embed.title}
-              allow="clipboard-write"
-              loading="lazy"
-            />
-          </div>
-        ))}
+      <div className="h-full">
+  <div className="flex-col items-center mt-0">
+    {memoizedEmbeds.map((embed) => (
+      <div
+        key={embed.id}
+        className={`embed-container ${embed.active ? 'active' : ''}`}
+        style={{ display: embed.active ? 'block' : 'none' }}
+      >
+        <iframe
+          src={embed.url}
+          frameBorder="0"
+          scrolling="yes"
+          className="embed-iframe"
+          title={embed.title}
+          allow="clipboard-write"
+          loading="lazy"
+        />
       </div>
+    ))}
+  </div>
+</div>
+
 
     {showTextModal && (
       <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="z-10 bg-[#131214] rounded-lg p-6 shadow-xl w-full   max-h-screen max-w-screen  overflow-y-auto">
+        <div className="absolute inset-0 bg-[#18181a] opacity-60"></div>
+        <div className="z-10 bg-[#18181a] rounded-lg p- shadow-xl w-full   max-h-screen max-w-screen  overflow-y-auto">
           
           <div className="text-gray-100 relative">
             <NoteTakingApp />
