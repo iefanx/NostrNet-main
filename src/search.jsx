@@ -50,8 +50,8 @@ const DuckDuckGoSearchBar = () => {
         placeholder="Search on Nostr"
       />
 
-      <div className="relative inline-block px-1 px-">
-        <div className="bg-[#303479] shadow-md text-semibold  rounded-full">
+      <div className="relative inline-block px-1 ">
+        <div className="bg-[#303479] shadow-lg text-semibold  rounded-full">
           <div className="" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <button
               onClick={() => openModal(<iframe src="https://labs.perplexity.ai/" title="AI Chat" className="w-full h-full rounded-xl" />)}
@@ -68,7 +68,7 @@ const DuckDuckGoSearchBar = () => {
         
       </div>
       <button
-              className="bg-[#303479] p-1 shadow-md text-semibold rounded-full"
+              className="bg-[#303479] p-1 shadow-lg text-semibold rounded-full"
               onClick={openExtModel}
               
             >
