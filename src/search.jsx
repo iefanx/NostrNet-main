@@ -54,7 +54,7 @@ const DuckDuckGoSearchBar = () => {
         <div className="bg-[#303479] shadow-lg text-semibold  rounded-full">
           <div className="" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <button
-              onClick={() => openModal(<iframe src="https://labs.perplexity.ai/" title="AI Chat" className="w-full h-full rounded-xl" />)}
+              onClick={() => openModal(<iframe src="https://labs.perplexity.ai/" title="AI Chat" className="w-full h-full bg-[#18181a] rounded-xl" />)}
               className="block px-1 py-1 text-xs font-semibold rounded-full font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
