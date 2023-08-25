@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Note.css';
 
 // db.js
 export const openDatabase = () => {
@@ -29,6 +30,19 @@ const NoteTakingApp = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [editingNoteId, setEditingNoteId] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedNoteContent, setSelectedNoteContent] = useState('');
+  
+
+  const openModal = (content) => {
+    setSelectedNoteContent(content);
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setSelectedNoteContent('');
+    setModalVisible(false);
+  };
 
 
   useEffect(() => {
@@ -195,10 +209,6 @@ const restoreNotes = async (file) => {
   }
 };
 
-
-
-
-
   const deleteNote = (noteId) => {
   if (window.confirm('Are you sure you want to delete this note?')) {
     openDatabase()
@@ -232,7 +242,7 @@ const restoreNotes = async (file) => {
   };
 
    return (
-    <div className="min-h-screen flex flex-col bg-[#18181a] items-center">
+    <div className="min-h-full flex flex-col bg-[#18181a] items-center">
       <div className="w-screen rounded-lg p-4 bg-[#18181a] text-white">
         <h1 className="text-lg text-center font-bold mb-4">Quick Notes (beta)</h1>
         <div className="mb-4">
@@ -241,18 +251,18 @@ const restoreNotes = async (file) => {
             value={noteTitle}
             onChange={(e) => setNoteTitle(e.target.value)}
             placeholder="Enter note title"
-            className="w-full p-2 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#252528] text-white border-none"
+            className="w-full p-2 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 shadow-lg bg-[#252528] text-white border-none"
           />
         </div>
         <textarea
           value={noteContent}
           onChange={(e) => setNoteContent(e.target.value)}
           placeholder="Enter note content"
-          className="w-full p-2 h-32 border text-xs font-bold rounded focus:outline-none focus:border-blue-500 bg-[#252528] text-white border-none"
+          className="w-full p-2 h-32 border text-xs font-bold rounded focus:outline-none focus:border-blue-500 shadow-lg bg-[#252528] text-white border-none"
         />
         <div className="flex justify-center items-center mt-4">
           <div>
-            <button onClick={saveNote} className="px-2 py-1 rounded-md  font-bold text-sm  text-black bg-gray-300 ">
+            <button onClick={saveNote} className="px-2 py-1 rounded-md shadow-lg font-bold text-sm  text-black bg-gray-300 ">
               Save Note
             </button>
           </div>
@@ -264,7 +274,7 @@ const restoreNotes = async (file) => {
           value={searchQuery}
           onChange={handleSearch}
           placeholder="Search notes..."
-          className="w-full p-1 mt-4 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#252528] text-white border-none"
+          className="w-full p-1 mt-4 border shadow-lg rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#252528] text-white border-none"
         />
         <div className="flex space-x-1">
             <button onClick={downloadNotes} className="px-1 pt-3 bg-transparent font-extrabold rounded-md text-xs text-gray-300  ">
@@ -282,25 +292,47 @@ const restoreNotes = async (file) => {
             </label>
           </div>
 
-       <ul id="notesList" className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+       <ul id="notesList" className="mt-4 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {searchResults
           .sort((a, b) => b.id - a.id) 
           .map((note) => (
-            <li key={note.id} className="bg-[#252528] p-4 rounded shadow">
-              <h3 className="text-blue-400 text-sm font-semibold mb-2">{note.title}</h3>
-              <p className="text-gray-300 text-xs font-semibold mb-2">{note.content}</p>
-              <div className="flex justify-center ">
-                <button onClick={() => editNote(note.id)} className="text-blue-400 font-semibold text-sm mr-10">
-                  Edit
-                </button>
+          <li key={note.id} className="bg-[#252528] px-2 py-2 text-left rounded-lg shadow-lg flex flex-col justify-between">
+                <div>
+                  <h3 className="text-gray-100 text-xs font-semibold mb-1">{note.title}</h3>
+                  {/* Display the first 15 characters of the content */}
+                  <p className="text-gray-300 text-xs font-semibold mb-2">
+                    {note.content.length > 100 ? `${note.content.slice(0, 100)}...` : note.content}
+                    
+                  </p>
+                </div>
+              <div className="mt-2 flex justify-end space-x-4">
                 <button onClick={() => deleteNote(note.id)} className="text-red-400 font-semibold text-sm">
                   Delete
                 </button>
+                <button onClick={() => editNote(note.id)} className="text-blue-400 font-semibold text-sm">
+                  Edit
+                </button>
+                
+                <button onClick={() => openModal(note.content)} className="text-blue-400 text-xs font-semibold ml-1  cursor-pointer focus:outline-none">
+                      View
+                    </button>
               </div>
             </li>
           ))}
       </ul>
-
+      {modalVisible && (
+          <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+            <div className="bg-[#18181a]  p-4 text-left rounded-lg shadow-lg max-w-full">
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold">Note Content</h3>
+                <p className="text-gray-300 font-semibold">{selectedNoteContent}</p>
+              </div>
+              <button onClick={closeModal} className=" flex justify-end text-blue-300 font-bold right-0">
+                Close
+              </button>
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
