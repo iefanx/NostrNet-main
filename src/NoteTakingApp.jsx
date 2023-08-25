@@ -232,8 +232,8 @@ const restoreNotes = async (file) => {
   };
 
    return (
-    <div className="min-h-screen flex flex-col bg-[#131214] items-center">
-      <div className="w-screen rounded-lg p-4 bg-[#131214] text-white">
+    <div className="min-h-screen flex flex-col bg-[#18181a] items-center">
+      <div className="w-screen rounded-lg p-4 bg-[#18181a] text-white">
         <h1 className="text-lg text-center font-bold mb-4">Quick Notes (beta)</h1>
         <div className="mb-4">
           <input
@@ -241,14 +241,14 @@ const restoreNotes = async (file) => {
             value={noteTitle}
             onChange={(e) => setNoteTitle(e.target.value)}
             placeholder="Enter note title"
-            className="w-full p-2 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#242225] text-white border-none"
+            className="w-full p-2 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#252528] text-white border-none"
           />
         </div>
         <textarea
           value={noteContent}
           onChange={(e) => setNoteContent(e.target.value)}
           placeholder="Enter note content"
-          className="w-full p-2 h-32 border text-xs font-bold rounded focus:outline-none focus:border-blue-500 bg-[#242225] text-white border-none"
+          className="w-full p-2 h-32 border text-xs font-bold rounded focus:outline-none focus:border-blue-500 bg-[#252528] text-white border-none"
         />
         <div className="flex justify-center items-center mt-4">
           <div>
@@ -264,7 +264,7 @@ const restoreNotes = async (file) => {
           value={searchQuery}
           onChange={handleSearch}
           placeholder="Search notes..."
-          className="w-full p-1 mt-4 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#242225] text-white border-none"
+          className="w-full p-1 mt-4 border rounded focus:outline-none text-xs font-bold focus:border-blue-500 bg-[#252528] text-white border-none"
         />
         <div className="flex space-x-1">
             <button onClick={downloadNotes} className="px-1 pt-3 bg-transparent font-extrabold rounded-md text-xs text-gray-300  ">
@@ -286,7 +286,7 @@ const restoreNotes = async (file) => {
         {searchResults
           .sort((a, b) => b.id - a.id) 
           .map((note) => (
-            <li key={note.id} className="bg-[#242225] p-4 rounded shadow">
+            <li key={note.id} className="bg-[#252528] p-4 rounded shadow">
               <h3 className="text-blue-400 text-sm font-semibold mb-2">{note.title}</h3>
               <p className="text-gray-300 text-xs font-semibold mb-2">{note.content}</p>
               <div className="flex justify-center ">
