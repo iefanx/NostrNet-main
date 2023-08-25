@@ -21,8 +21,8 @@ const Modal = ({ url, title, setUrl, setTitle, handleSaveClick, handleClose }) =
   };
 
   return (
-    <div className="fixed inset-0  flex items-start justify-center z-50">
-      <div className="bg-[#252528]  rounded shadow-lg p-6 w-96 mt-40">
+    <div className="fixed inset-0 bg-[#18181a] bg-opacity-50 flex items-start justify-center z-50">
+      <div className="bg-[#18181a]  rounded shadow-lg p-6 w-96 mt-40">
         <h2 className="text-xs font-semibold mb-4">Add new WebApps of your choice. You can also
          discover the latest Nostr services by clicking the 'App Store' button and
           copying/pasting the link here.</h2>
