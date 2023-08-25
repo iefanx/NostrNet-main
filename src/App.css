@@ -11,9 +11,8 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  
-}
 
+}
 
 .left-corner-container {
   position: absolute;
@@ -29,8 +28,6 @@ body {
   margin-right: 4px;
   margin-top: 4px;
 }
-
-
 
 
 .embed-container {
@@ -49,7 +46,7 @@ body {
 }
 
 .embed-iframe {
-  
+
   width: 100%;
   height: 100vh;
 }
@@ -64,7 +61,7 @@ body {
 
 /* Add this CSS to your stylesheets */
 .input-style {
-  background-color: #2b282c;
+  background-color: #252528;
   color: #ffffff;
   font-size: 12px;
   padding: 6px 12px;
@@ -77,12 +74,13 @@ body {
 }
 
 .input-style::placeholder {
-  color: #a0aec0;
+  color: #606871;
   font-weight: bold;
 
 }
+
 .input-style2 {
-  background-color: #625d64;
+  background-color: #34343a;
   color: #ffffff;
   font-size: 12px;
   border: none;
@@ -103,6 +101,7 @@ body {
     width: 600px;
   }
 }
+
 /* Increase width on medium and larger screens */
 @media (min-width: 668px) {
   .input-style {
@@ -136,19 +135,20 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 10;
- 
-}
-.close-all-button {
-    position: absolute;
-      top: 5px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 18px;
-      color: #ffffff;
-      cursor: pointer;
 
-  }
+}
+
+.close-all-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ffffff;
+  cursor: pointer;
+
+}
 
 .ext-model.open {
   display: flex;
@@ -216,5 +216,3 @@ body {
   height: 100%;
   border: none;
 }
-
-
