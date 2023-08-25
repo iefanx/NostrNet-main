@@ -21,7 +21,7 @@ const DuckDuckGoSearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const searchUrl = `https://nostr.band/?q=${encodeURIComponent(searchQuery)}`;
-    setModalContent(<iframe src={searchUrl} title="Search Results" className="w-screen h-screen" />);
+    setModalContent(<iframe src={searchUrl} title="Search Results" className="w-full rounded-xl  px-1 h-full" />);
   };
   const [extModelOpen, setExtModelOpen] = useState(false);
 
@@ -54,7 +54,7 @@ const DuckDuckGoSearchBar = () => {
         <div className="bg-[#303479] shadow-md text-semibold  rounded-full">
           <div className="" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <button
-              onClick={() => openModal(<iframe src="https://labs.perplexity.ai/" title="AI Chat" className="w-full h-full" />)}
+              onClick={() => openModal(<iframe src="https://labs.perplexity.ai/" title="AI Chat" className="w-full h-full rounded-xl" />)}
               className="block px-1 py-1 text-xs font-semibold rounded-full font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
@@ -82,8 +82,8 @@ const DuckDuckGoSearchBar = () => {
           <div className=" h-full  w-full  rounded-lg">
             <button onClick={closeModal}  className=" absolute top-0  font-mono font-semibold rounded-full text-black bg-gray-300 right-2">
               <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             </button>
             {modalContent}
