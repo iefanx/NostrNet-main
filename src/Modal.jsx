@@ -22,7 +22,7 @@ const Modal = ({ url, title, setUrl, setTitle, handleSaveClick, handleClose }) =
 
   return (
     <div className="fixed inset-0  flex items-start justify-center z-50">
-      <div className="bg-[#2b282c] rounded shadow-lg p-6 w-96 mt-40">
+      <div className="bg-[#252528]  rounded shadow-lg p-6 w-96 mt-40">
         <h2 className="text-xs font-semibold mb-4">Add new WebApps of your choice. You can also
          discover the latest Nostr services by clicking the 'App Store' button and
           copying/pasting the link here.</h2>
@@ -37,14 +37,14 @@ const Modal = ({ url, title, setUrl, setTitle, handleSaveClick, handleClose }) =
         {urlWarning && <p className="text-red-500 mb-2">{urlWarning}</p>}
         <input
           type="text"
-          className="input-style2 w-full py-2 px-4 text-gray-500 rounded border border-gray-300 mb-4"
+          className="input-style2 w-full py-2 px-4 text-gray-700 rounded border border-gray-300 mb-4"
           placeholder="Website Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <div className="flex justify-between">
           <a href="https://nostrapp.link/" rel="noopener noreferrer">
-            <button className="px-4 py-1 text-sm rounded bg-gray-600 font-bold text-gray-200">
+            <button className="px-4 py-1 text-sm rounded bg-gray-700 font-bold text-gray-200">
               App Store
             </button>
           </a>
