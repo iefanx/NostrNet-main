@@ -108,7 +108,6 @@ const App = () => {
 }, [embeds, toggleEmbed]);
 
 
-
   const handleDefaultClick = useCallback(() => {
     localStorage.removeItem(EMBEDS_DATA_KEY);
     setEmbeds(getDefaultEmbedsData());
@@ -137,7 +136,6 @@ const closeTextModal = () => {
     setExtModelOpen(false);
   };
   
-  
 
   return (
     <div className="bg-[#18181a] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
@@ -151,15 +149,15 @@ const closeTextModal = () => {
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
              
-            
             </h2>
             <div className=" clock-container text-center">
 
             <BlockNumberComponent />
+              
           </div>
             <div className="mt-2 ">
+              
          <DuckDuckGoSearchBar />
-         
          
       </div>
           </div>
@@ -329,54 +327,49 @@ const closeTextModal = () => {
       )}
 
       <div className="h-full">
-  <div className="flex-col items-center mt-0">
-    {memoizedEmbeds.map((embed) => (
-      <div
-        key={embed.id}
-        className={`embed-container ${embed.active ? 'active' : ''}`}
-        style={{ display: embed.active ? 'block' : 'none' }}
-      >
-        <iframe
-          src={embed.url}
-          frameBorder="0"
-          scrolling="yes"
-          className="embed-iframe"
-          title={embed.title}
-          allow="clipboard-write"
-          loading="lazy"
-        />
+        <div className="flex-col items-center mt-0">
+          {memoizedEmbeds.map((embed) => (
+            <div
+              key={embed.id}
+              className={`embed-container ${embed.active ? 'active' : ''}`}
+              style={{ display: embed.active ? 'block' : 'none' }}
+            >
+              <iframe
+                src={embed.url}
+                frameBorder="0"
+                scrolling="yes"
+                className="embed-iframe"
+                title={embed.title}
+                allow="clipboard-write"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
 
     {showTextModal && (
-      <div className="fixed inset-0 flex items-center justify-center z-50">
-        <div className="absolute inset-0 bg-[#18181a] opacity-60"></div>
-        <div className="z-10 bg-[#18181a] rounded-lg p- shadow-xl w-full   max-h-screen max-w-screen  overflow-y-auto">
-          
-          <div className="text-gray-100 relative">
-            <NoteTakingApp />
-            <button className="absolute top-4 right-2 text-gray-300 hover:text-white" onClick={closeTextModal}>
-              <svg className="w-4 h-4 font-bold fill-current" viewBox="0 0 24 24">
-                <path d="M19.06 5.63l-1.07-1.07L12 10.94 5.41 4.35 4.34 5.42 10.93 12l-6.59 6.59 1.07 1.07L12 13.06l6.59 6.59 1.07-1.07L13.06 12l6.59-6.59z"/>
+      <div className="fixed inset-0 flex items-center  bg-[#18181a] justify-center z-50">
+      <div className="absolute inset-0 bg-[#18181a] opacity-60"></div>
+      <div className="z-10 bg-[#18181a] rounded-lg shadow-xl h-full  w-full max-w-screen-md overflow-y-auto">
+        <div className="text-gray-100 h- relative">
+
+            <button className="absolute top-4 right-2 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
+             onClick={closeTextModal}>
+             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </button>
           </div>
+          <div className="p-4 max-h-[100vh] overflow-y-auto">
+        <NoteTakingApp />
+      </div>
+
         </div>
       </div>
     )}
-
-
-  
-      
-
-
       <ExtModel isOpen={extModelOpen} onClose={closeExtModel} />
-
-    
-
       {showModal && (
         <Modal
           url={url}
