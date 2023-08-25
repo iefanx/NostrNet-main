@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const openDatabase = () => {
+// db.js
+export const openDatabase = () => {
   return new Promise((resolve, reject) => {
     const request = window.indexedDB.open('NoteDB', 1);
 
@@ -19,6 +20,7 @@ const openDatabase = () => {
     };
   });
 };
+
 
 const NoteTakingApp = () => {
   const [noteTitle, setNoteTitle] = useState('');
@@ -114,32 +116,70 @@ const NoteTakingApp = () => {
   URL.revokeObjectURL(url);
 };
 
-const restoreNotes = (data) => {
-  try {
-    const parsedData = JSON.parse(data);
-    if (Array.isArray(parsedData)) {
-      // Set the parsed data as the new notes
-      setNotes(parsedData);
-      setSearchResults(parsedData);
-      alert('Data restored successfully.');
-    } else {
-      throw new Error('Invalid data format.');
+const restoreNotes = async (file) => {
+    try {
+      const text = await file.text();
+      const parsedData = JSON.parse(text);
+
+      if (Array.isArray(parsedData)) {
+        openDatabase()
+          .then(db => {
+            const transaction = db.transaction(['notes'], 'readwrite');
+            const noteStore = transaction.objectStore('notes');
+
+            const existingNotesRequest = noteStore.getAll();
+
+            existingNotesRequest.onsuccess = () => {
+              const existingNotes = existingNotesRequest.result;
+              const updatedNotes = [];
+
+              parsedData.forEach(newNote => {
+                const existingNoteIndex = existingNotes.findIndex(note => note.id === newNote.id);
+
+                if (existingNoteIndex !== -1) {
+                  const resolvedNote = { ...existingNotes[existingNoteIndex], ...newNote };
+                  updatedNotes.push(resolvedNote);
+                  existingNotes.splice(existingNoteIndex, 1);
+                } else {
+                  updatedNotes.push(newNote);
+                }
+              });
+
+              updatedNotes.push(...existingNotes);
+
+              const clearRequest = noteStore.clear();
+
+              clearRequest.onsuccess = () => {
+                const addRequests = updatedNotes.map(note => {
+                  return noteStore.add(note);
+                });
+
+                Promise.all(addRequests).then(() => {
+                  setNotes(updatedNotes);
+                  setSearchResults(updatedNotes);
+                  alert('Data restored and saved to IndexedDB successfully.');
+                });
+              };
+            };
+          })
+          .catch(error => {
+            console.error('Error opening database:', error);
+          });
+      } else {
+        throw new Error('Invalid data format.');
+      }
+    } catch (error) {
+      console.error('Error restoring data:', error);
+      alert('Error restoring data. Please make sure the data is in valid JSON format.');
     }
-  } catch (error) {
-    console.error('Error restoring data:', error);
-    alert('Error restoring data. Please make sure the data is in valid JSON format.');
-  }
-};
-
-const handleFileUpload = (event) => {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.onload = (event) => {
-    restoreNotes(event.target.result);
   };
-  reader.readAsText(file);
-};
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      restoreNotes(file);
+    }
+  };
 
 
 
@@ -232,7 +272,7 @@ const handleFileUpload = (event) => {
             </button>
             <input
               type="file"
-              accept=".json"
+
               onChange={handleFileUpload}
               className="hidden"
               id="fileInput"
