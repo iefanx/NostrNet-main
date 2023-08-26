@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import Modal from './Modal';
 import DuckDuckGoSearchBar from './search';
-import BlockNumberComponent from './maininfo';
 import NoteTakingApp from './NoteTakingApp';
 import ExtModel from './ExtModel'; 
+import ButtonGroup from './ButtonGroup';
 
 const EMBEDS_DATA_KEY = 'embedsData';
 
@@ -19,6 +19,7 @@ const App = () => {
   const [showTextModal, setShowTextModal] = useState(false);
   const [, setTextModalContent] = useState('');
   const [extModelOpen, setExtModelOpen] = useState(false);
+  const [buttonClickMessage, setButtonClickMessage] = useState('');
 
   
   useEffect(() => {
@@ -108,6 +109,7 @@ const App = () => {
 }, [embeds, toggleEmbed]);
 
 
+
   const handleDefaultClick = useCallback(() => {
     localStorage.removeItem(EMBEDS_DATA_KEY);
     setEmbeds(getDefaultEmbedsData());
@@ -136,9 +138,14 @@ const closeTextModal = () => {
     setExtModelOpen(false);
   };
   
+  const handleButtonClick = (buttonName) => {
+    setButtonClickMessage(`Button ${buttonName} clicked!`);
+  };
+  
 
   return (
-    <div className="bg-[#18181a] text-white min-h-screen text-center flex flex-col justify-start  w-screen">
+    <div className='h-screen'>
+    <div className="bg-[#18181a] text-white h-full text-center flex flex-col justify-start  w-screen">
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div className='text-left'>
@@ -149,16 +156,20 @@ const closeTextModal = () => {
             </h1>
             <h2 className="text-xs font-semibold mx-9 md:text-base lg:text-lg">
              
+            
             </h2>
-            <div className=" clock-container text-center">
-
-            <BlockNumberComponent />
-              
-          </div>
+            
             <div className="mt-2 ">
-              
          <DuckDuckGoSearchBar />
          
+         
+      </div>
+      
+      <div className="mt-2 ">
+      <ButtonGroup onButtonClick={handleButtonClick} />
+
+      {/* Display the button click message */}
+      <p className="text-gray-300">{buttonClickMessage}</p>
       </div>
           </div>
           
@@ -172,14 +183,16 @@ const closeTextModal = () => {
               {showDeleteButtons ? 'Cancel' : 'Edit'}
             </button>
           </div>
+          
         </div>
+        
       )}
       
       {!embeds.some((embed) => embed.active) && !showSecondMenu ? (
-      <nav className="flex justify-center mb-0">
-        <div className="flex flex-wrap gap-1 mt-0 mx-auto w-full max-w-4xl md:max-w-4xl lg:max-w-6xl justify-center">
+      <nav className="flex justify-center  mb-0">
+        <div className="flex flex-wrap gap-1 mt-0 mx-auto   w-full max-w-4xl md:max-w-4xl lg:max-w-6xl justify-center">
           {memoizedEmbeds.map((embed) => (
-            <div key={embed.id} style={{ position: "relative", minWidth: "80px" }}>
+            <div className=' ' key={embed.id} style={{ position: "relative", minWidth: "80px" }}>
               {showDeleteButtons && (
                 <button
                   className="menu-item absolute right-0 px-0 py-0 font-lg text-xs rounded-full text-white transition bg-red-500 hover:bg-red-600"
@@ -197,6 +210,7 @@ const closeTextModal = () => {
                   minWidth: "80px",
                   maxWidth: "120px",
                   whiteSpace: "nowrap",
+                  
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   transition: "background-color 0.3s, transform 0.3s",
@@ -287,11 +301,11 @@ const closeTextModal = () => {
 
               </button>
               <button
-        className="absolute right-1 px-1 py-1 mr-10  text-xs font-semibold bg-gray-600 rounded-full font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
-        onClick={openExtModel}
-      >
-         <svg fill="#000000" width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 10V7c0-1.103-.897-2-2-2h-3c0-1.654-1.346-3-3-3S8 3.346 8 5H5c-1.103 0-2 .897-2 2v4h1a2 2 0 0 1 0 4H3v4c0 1.103.897 2 2 2h4v-1a2 2 0 0 1 4 0v1h4c1.103 0 2-.897 2-2v-3c1.654 0 3-1.346 3-3s-1.346-3-3-3z"/></svg>
-      </button>
+              className="absolute right-1 px-1 py-1 mr-10  text-xs font-semibold bg-gray-600 rounded-full font-mono text-gray-200 hover:bg-gray-100 hover:text-gray-900"
+              onClick={openExtModel}
+            >
+              <svg fill="#000000" width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 10V7c0-1.103-.897-2-2-2h-3c0-1.654-1.346-3-3-3S8 3.346 8 5H5c-1.103 0-2 .897-2 2v4h1a2 2 0 0 1 0 4H3v4c0 1.103.897 2 2 2h4v-1a2 2 0 0 1 4 0v1h4c1.103 0 2-.897 2-2v-3c1.654 0 3-1.346 3-3s-1.346-3-3-3z"/></svg>
+            </button>
               
         </div>
         
@@ -326,27 +340,32 @@ const closeTextModal = () => {
         </nav>
       )}
 
-      <div className="h-full">
-        <div className="flex-col items-center mt-0">
-          {memoizedEmbeds.map((embed) => (
-            <div
-              key={embed.id}
-              className={`embed-container ${embed.active ? 'active' : ''}`}
-              style={{ display: embed.active ? 'block' : 'none' }}
-            >
-              <iframe
-                src={embed.url}
-                frameBorder="0"
-                scrolling="yes"
-                className="embed-iframe"
-                title={embed.title}
-                allow="clipboard-write"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
+      
+  <div className="flex-col  h-full  items-center mt-0">
+    {memoizedEmbeds.map((embed) => (
+      
+      
+      <div
+        key={embed.id}
+        className={`embed-container ${embed.active ? 'active' : ''}`}
+        style={{ display: embed.active ? 'block' : 'none' }}
+      >
+        <div className="h-full">
+        <iframe
+          src={embed.url}
+          frameBorder="0"
+          scrolling="yes"
+          className="embed-iframe max-h-full "
+          title={embed.title}
+          allow="clipboard-write"
+          loading="lazy"
+        />
       </div>
+      </div>
+    ))}
+  
+</div>
+
 
     {showTextModal && (
       <div className="fixed inset-0 flex items-center  bg-[#18181a] justify-center z-50">
@@ -369,7 +388,11 @@ const closeTextModal = () => {
         </div>
       </div>
     )}
+
       <ExtModel isOpen={extModelOpen} onClose={closeExtModel} />
+
+    
+
       {showModal && (
         <Modal
           url={url}
@@ -380,6 +403,7 @@ const closeTextModal = () => {
           handleClose={() => setShowModal(false)}
         />
       )}
+    </div>
     </div>
   );
 };
