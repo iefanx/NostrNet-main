@@ -1,13 +1,12 @@
 {
   "short_name": "NostrNet",
   "name": "NostrNet Work",
-  "description": "NostrNet helps you manage all your web applications on one place with lot of in-App extensions like Llama, Private notes and Local file sharing.",
+  "description": "NostrNet helps you manage all your web applications on one place with a lot of in-App extensions like Llama, Private notes, and Local file sharing.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#000",
   "theme_color": "#000",
   "icons": [
-    
     {
       "src": "logo.png",
       "sizes": "192x192",
@@ -18,7 +17,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  
   ],
   "id": "NostrNet.work",
   "dir": "auto",
@@ -29,13 +27,13 @@
     "fullscreen",
     "window-controls-overlay"
   ],
-  "screenshots" : [
-  {
-    "src": "screenshot-1.png",
-    "sizes": "1280x720",
-    "type": "image/png",
-    "platform": "wide",
-  }
+  "screenshots": [
+    {
+      "src": "screenshot-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide"
+    }
   ],
   "categories": [
     "entertainment",
