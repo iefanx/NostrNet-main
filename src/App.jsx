@@ -353,13 +353,15 @@ const closeTextModal = () => {
         <div className="h-full">
         <iframe
           src={embed.url}
-          frameBorder="0"
+           frameBorder="0"
         scrolling="yes"
         className="embed-iframe max-h-full"
         title={embed.title}
         allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
         allowFullScreen
         allowPaymentRequest
+        allow-storage-access-by-user-activation
+        allow-same-origin
         loading="lazy"
         sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
         />
