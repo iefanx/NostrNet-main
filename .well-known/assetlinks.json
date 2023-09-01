@@ -1,0 +1,8 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "iefan.nostrnet.www.twa",
+      "sha256_cert_fingerprints": ["F0:34:80:7F:47:AD:1D:1D:94:80:BB:72:9E:58:62:88:FF:CD:03:C4:D7:4A:30:8E:3D:D0:D5:BC:77:1E:9C:3A"]
+    }
+  }]
