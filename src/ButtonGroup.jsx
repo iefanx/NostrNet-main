@@ -19,7 +19,7 @@ const ButtonGroup = () => {
     <div className="main-btn grid grid-cols-2 md:grid-cols-4    gap-2 px-8  justify-center mt-4">
       <button
         className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-3 rounded-xl shadow-lg flex items-center space-x-4"
-        onClick={() => handleButtonClick('https://labs.perplexity.ai')}
+        onClick={() => handleButtonClick('https://vendata.io/jobs/new')}
       >
         <svg width="30px" height="30px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>ai</title>
@@ -31,7 +31,7 @@ const ButtonGroup = () => {
                     </g>
                 </g>
             </svg>
-        Ai assistant
+        Nostr Ai
       </button>
       <button
         className="bg-[#252528] hover:bg-gray-700 text-md text-sm text-gray-300 font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-4"
