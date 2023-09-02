@@ -216,7 +216,7 @@ const closeTextModal = () => {
                   transition: "background-color 0.3s, transform 0.3s",
                 }}
               >
-                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-14 h-14 shadow-lg  bg-[#252528] rounded-full mx-auto mb-1" />
+                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-14 h-14 shadow-xl  bg-[#252528] rounded-full mx-auto mb-1 ring-2 ring-gray-600" />
                 <span className="embed-title shadow" style={{ maxWidth: "100%" }}>
                   {embed.title}
                 </span>
@@ -226,7 +226,7 @@ const closeTextModal = () => {
             {!embeds.some((embed) => embed.active) && (
               <div>
                 <button
-                  className={`inline-block px-0 pb-2  font-semibold text-xs rounded-lg text-gray-300`}
+                  className={`inline-block px-0 pb-2  font-semibold text-xs  rounded-lg text-gray-300`}
                   onClick={handleAddClick}
                   
                 >
@@ -250,7 +250,7 @@ const closeTextModal = () => {
           </div>
           <a href="/" rel="noopener noreferrer">
             <button
-              className="p-1 text-xs mr-4  rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200"
+              className="p-1 text-xs mr-4 justify-end rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200"
               href="/"
             >
               <svg width="15px" height="15px"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -264,7 +264,7 @@ const closeTextModal = () => {
 
           {showSecondMenu ? (
             <button
-              className="p-1  text-xs rounded-full mr-2 bg-[#758332] font-semibold text-gray-200 "
+              className="p-1   text-xs rounded-full mr-2 bg-[#758332] font-semibold text-gray-200 "
               onClick={() => setShowSecondMenu(false)}
             >
               <svg width="15px" height="15px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -326,7 +326,7 @@ const closeTextModal = () => {
                 onClick={embed.handleClick}
                 aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
               >
-                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-8 h-8 bg-[#323232]  rounded-full mx-auto mb-1 " />
+                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-8 h-8 ring-1 ring-gray-600 bg-[#323232]  rounded-full shadow-xl mx-auto mb-1 " />
               </button>
             </div>
           ))}
@@ -347,16 +347,14 @@ const closeTextModal = () => {
       >
         <div className="h-full">
         <iframe
-          src={embed.url}
-           frameBorder="0"
+           src={embed.url}
+        frameBorder="0"
         scrolling="yes"
         className="embed-iframe max-h-full"
         title={embed.title}
         allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
         allowFullScreen
         allowPaymentRequest
-        allow-storage-access-by-user-activation
-        allow-same-origin
         loading="lazy"
         sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
         />
