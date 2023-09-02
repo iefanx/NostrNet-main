@@ -246,3 +246,19 @@ body {
     
   }
 }
+
+/* CSS for the profile iframe */
+.fullscreen-iframe {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+
+  height: 95%;
+
+ 
+
+  z-index: 10;
+
+}
