@@ -103,7 +103,7 @@ const ButtonGroup = () => {
                 src={selectedUrl}
                 width="100%"
                 height="100%"
-                className="modal-content rounded-xl"
+                className="modal-content rounded-xl bg-[#18181a]"
                 frameBorder="0"
               />
             )}
