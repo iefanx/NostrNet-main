@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
-import NoteTakingApp from './NoteTakingApp'; // Import the NoteTakingApp component
+import NoteTakingApp from './NoteTakingApp'; 
+import Profile from './Profile';
 
 const ButtonGroup = () => {
   const [selectedUrl, setSelectedUrl] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
 
   const handleButtonClick = (url) => {
+  if (url === 'backup') {
+    setIsProfileOpen(true);
+  } else {
     setSelectedUrl(url);
     setIsModalOpen(true);
-  };
+  }
+};
 
+
+  
   const closeModal = () => {
     setSelectedUrl(null);
     setIsModalOpen(false);
@@ -17,8 +26,20 @@ const ButtonGroup = () => {
 
   return (
     <div className="main-btn grid grid-cols-2 md:grid-cols-4    gap-2 px-8  justify-center mt-4">
+            <button
+      className="bg-[#252528] hover:bg-gray-700 text-md text-sm text-gray-300 font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
+      onClick={() => handleButtonClick('backup')}
+    >
+      <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#e7e7e7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path opacity="0.34" d="M18.7398 19.3801C16.9598 21.0101 14.5998 22.0001 11.9998 22.0001C9.39977 22.0001 7.03977 21.0101 5.25977 19.3801C5.35977 18.4401 5.95977 17.5201 7.02977 16.8001C9.76977 14.9801 14.2498 14.9801 16.9698 16.8001C18.0398 17.5201 18.6398 18.4401 18.7398 19.3801Z" stroke="#e7e7e7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#e7e7e7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      <span className="ml-1">Profile</span>
+    </button>
+
       <button
-        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-3 rounded-xl shadow-lg flex items-center space-x-4"
+        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-3 rounded-xl shadow-lg flex items-center space-x-2"
         onClick={() => handleButtonClick('https://vendata.io/jobs/new')}
       >
         <svg width="30px" height="30px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -31,22 +52,12 @@ const ButtonGroup = () => {
                     </g>
                 </g>
             </svg>
-        Nostr Ai
+        
+        <span className="ml-1">NostrAi</span>
       </button>
+
       <button
-        className="bg-[#252528] hover:bg-gray-700 text-md text-sm text-gray-300 font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-4"
-        onClick={() => handleButtonClick('https://nostryfied.online/')}
-      >
-         <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g opacity="0.5">
-        <path d="M6.50001 18L6.50001 17.9105C6.49991 17.0449 6.49981 16.2512 6.58661 15.6056C6.6822 14.8946 6.90709 14.1432 7.52514 13.5251C8.14319 12.9071 8.89464 12.6822 9.6056 12.5866C10.2512 12.4998 11.0449 12.4999 11.9105 12.5H12.0895C12.9551 12.4999 13.7488 12.4998 14.3944 12.5866C15.1054 12.6822 15.8568 12.9071 16.4749 13.5251C17.0929 14.1432 17.3178 14.8946 17.4134 15.6056C17.4989 16.2417 17.5001 17.0215 17.5 17.8722C20.0726 17.3221 22 15.0599 22 12.3529C22 9.88113 20.393 7.78024 18.1551 7.01498C17.8371 4.19371 15.4159 2 12.4762 2C9.32028 2 6.7619 4.52827 6.7619 7.64706C6.7619 8.33687 6.88706 8.9978 7.11616 9.60887C6.8475 9.55673 6.56983 9.52941 6.28571 9.52941C3.91878 9.52941 2 11.4256 2 13.7647C2 16.1038 3.91878 18 6.28571 18L6.50001 18Z" fill="#88898c"/>
-        </g>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C10.1144 22 9.17157 22 8.58579 21.4142C8 20.8284 8 19.8856 8 18C8 16.1144 8 15.1716 8.58579 14.5858C9.17157 14 10.1144 14 12 14C13.8856 14 14.8284 14 15.4142 14.5858C16 15.1716 16 16.1144 16 18C16 19.8856 16 20.8284 15.4142 21.4142C14.8284 22 13.8856 22 12 22ZM13.8047 18.9158L12.4714 20.2492C12.2111 20.5095 11.7889 20.5095 11.5286 20.2492L10.1953 18.9158C9.93491 18.6555 9.93491 18.2334 10.1953 17.973C10.4556 17.7127 10.8777 17.7127 11.1381 17.973L11.3333 18.1683V16.2222C11.3333 15.854 11.6318 15.5556 12 15.5556C12.3682 15.5556 12.6667 15.854 12.6667 16.2222V18.1683L12.8619 17.973C13.1223 17.7127 13.5444 17.7127 13.8047 17.973C14.0651 18.2334 14.0651 18.6555 13.8047 18.9158Z" fill="#88898c"/>
-        </svg>
-        Backups
-      </button>
-      <button
-        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-4"
+        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
         onClick={() => handleButtonClick('notes')} // Set the selectedUrl to 'notes'
       >
           <svg width="30px" height="30px" viewBox="0 0 24 24" fill="#88898c" xmlns="http://www.w3.org/2000/svg">
@@ -55,10 +66,10 @@ const ButtonGroup = () => {
         <path opacity="0.4" d="M12.6406 8.52979L17.4906 9.75979" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path opacity="0.4" d="M11.6602 12.3999L14.5602 13.1399" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Notes
+        <span className="ml-1">Notes</span>
       </button>
       <button
-        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-4"
+        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
         onClick={() => handleButtonClick('https://drop.lol/')}
       >
         <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +78,7 @@ const ButtonGroup = () => {
         <path d="M18.5 21C16.8431 21 15.5 19.6569 15.5 18C15.5 16.3431 16.8431 15 18.5 15C20.1569 15 21.5 16.3431 21.5 18" stroke="#88898c" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M20 13C20 10.6106 18.9525 8.46589 17.2916 7M4 13C4 10.6106 5.04752 8.46589 6.70838 7M10 20.748C10.6392 20.9125 11.3094 21 12 21C12.6906 21 13.3608 20.9125 14 20.748" stroke="#88898c" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        Share
+        <span className="ml-1">Share</span>
       </button>
 
       {isModalOpen && (
@@ -92,13 +103,34 @@ const ButtonGroup = () => {
                 src={selectedUrl}
                 width="100%"
                 height="100%"
-                className="modal-content rounded-xl bg-[#18181a]"
+                className="modal-content rounded-xl"
                 frameBorder="0"
               />
             )}
           </div>
         </div>
       )}
+      {isProfileOpen && (
+      <div className="fixed inset-0 flex items-center justify-center z-20">
+        <div className="p-4 rounded-xl w-full h-full relative bg-[#18181a] overflow-y-auto">
+          
+          <div className="modal-content mt-10 bg-[#252528]  rounded-xl">
+            <button
+            className="absolute  right-10 mt-3 font-bold bg-inherit text-gray-300 rounded-full bg-gray-300 hover:text-white "
+            onClick={() => setIsProfileOpen(false)}
+          >
+            <spam> close</spam>
+          </button>
+           
+            
+            <Profile />
+      
+
+            
+          </div>
+        </div>
+      </div>
+    )}
     </div>
   );
 };
