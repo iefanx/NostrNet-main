@@ -45,5 +45,6 @@
   },
   "edge_side_panel": {
     "preferred_width": 480
-  }
+  },
+  "externally_opened_tabs": "custom"
 }
