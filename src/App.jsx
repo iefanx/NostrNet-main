@@ -142,6 +142,22 @@ const closeTextModal = () => {
   const handleButtonClick = (buttonName) => {
     setButtonClickMessage(`Button ${buttonName} clicked!`);
   };
+
+  // Listen for the beforeinstallprompt event
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Create a custom button
+  const button = document.createElement('button');
+  button.textContent = 'Add to home screen';
+
+  // When the button is clicked, add the website to the home screen
+  button.addEventListener('click', async () => {
+    e.preventDefault();
+    e.prompt();
+  });
+
+  // Add the button to the DOM
+  document.body.appendChild(button);
+});
   
 
   return (
