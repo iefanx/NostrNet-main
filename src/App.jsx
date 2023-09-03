@@ -307,7 +307,7 @@ const closeTextModal = () => {
            src={embed.url}
         frameBorder="0"
         scrolling="yes"
-        className="embed-iframe max-h-full"
+        className="embed-iframe max-h-full bg-[#18181a]"
         title={embed.title}
         allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
         allowFullScreen
