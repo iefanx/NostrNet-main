@@ -144,23 +144,9 @@ const closeTextModal = () => {
   };
 
 
-  const deferredPrompt = null;
+  
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  deferredPrompt = e;
-});
 
-const installButton = document.getElementById("installButton");
-
-installButton.addEventListener("click", async () => {
-  if (deferredPrompt !== null) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") {
-      deferredPrompt = null;
-    }
-  }
-});
   
 
   return (
