@@ -262,3 +262,17 @@ body {
   z-index: 10;
 
 }
+
+
+.modal5 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 1;
+  visibility: visible;
+  z-index: 9998;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Style the backdrop when the modal is open */
