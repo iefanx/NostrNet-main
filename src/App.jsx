@@ -143,28 +143,22 @@ const closeTextModal = () => {
     setButtonClickMessage(`Button ${buttonName} clicked!`);
   };
 
-  // Listen for the beforeinstallprompt event
-//let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
+  const deferredPrompt = null;
+
+window.addEventListener("beforeinstallprompt", (e) => {
   deferredPrompt = e;
-  // Show a button or UI element to trigger the installation
-  installButton.style.display = 'block';
 });
-  
 
-installButton.addEventListener('click', () => {
-  if (deferredPrompt) {
+const installButton = document.getElementById("installButton");
+
+installButton.addEventListener("click", async () => {
+  if (deferredPrompt !== null) {
     deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('PWA installed');
-      } else {
-        console.log('PWA installation declined');
-      }
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") {
       deferredPrompt = null;
-    });
+    }
   }
 });
   
