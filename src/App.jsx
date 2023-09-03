@@ -144,7 +144,7 @@ const closeTextModal = () => {
   };
 
   // Listen for the beforeinstallprompt event
-wi// Listen for the beforeinstallprompt event
+// Listen for the beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (e) => {
   // Use the default design for the "Add to home screen" button
   e.browserAction.defaultIcon = '/favicon.ico';
