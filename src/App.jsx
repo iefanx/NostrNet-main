@@ -5,6 +5,7 @@ import DuckDuckGoSearchBar from './search';
 import NoteTakingApp from './NoteTakingApp';
 import ExtModel from './ExtModel'; 
 import ButtonGroup from './ButtonGroup';
+import MenuButton from './MenuButton';
 
 const EMBEDS_DATA_KEY = 'embedsData';
 
@@ -275,39 +276,13 @@ const closeTextModal = () => {
             </button>
           </a>
 
-              {showSecondMenu ? (
-                <a>
-            <button
-              className="p-1 text-xs rounded-full mr-2 bg-[#758332] font-semibold text-gray-200 "
-              onClick={() => setShowSecondMenu(false)}
-            >
-              <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.1" d="M14 17.5C14 16.0955 14 15.3933 14.3371 14.8889C14.483 14.6705 14.6705 14.483 14.8889 14.3371C15.3933 14 16.0955 14 17.5 14V14V14C18.9045 14 19.6067 14 20.1111 14.3371C20.3295 14.483 20.517 14.6705 20.6629 14.8889C21 15.3933 21 16.0955 21 17.5V17.5V17.5C21 18.9045 21 19.6067 20.6629 20.1111C20.517 20.3295 20.3295 20.517 20.1111 20.6629C19.6067 21 18.9045 21 17.5 21V21V21C16.0955 21 15.3933 21 14.8889 20.6629C14.6705 20.517 14.483 20.3295 14.3371 20.1111C14 19.6067 14 18.9045 14 17.5V17.5V17.5Z" fill="#323232"/>
-<path opacity="0.1" d="M3 17.5C3 16.0955 3 15.3933 3.33706 14.8889C3.48298 14.6705 3.67048 14.483 3.88886 14.3371C4.39331 14 5.09554 14 6.5 14V14V14C7.90446 14 8.60669 14 9.11114 14.3371C9.32952 14.483 9.51702 14.6705 9.66294 14.8889C10 15.3933 10 16.0955 10 17.5V17.5V17.5C10 18.9045 10 19.6067 9.66294 20.1111C9.51702 20.3295 9.32952 20.517 9.11114 20.6629C8.60669 21 7.90446 21 6.5 21V21V21C5.09554 21 4.39331 21 3.88886 20.6629C3.67048 20.517 3.48298 20.3295 3.33706 20.1111C3 19.6067 3 18.9045 3 17.5V17.5V17.5Z" fill="#323232"/>
-<path opacity="0.1" d="M3 6.5C3 5.09554 3 4.39331 3.33706 3.88886C3.48298 3.67048 3.67048 3.48298 3.88886 3.33706C4.39331 3 5.09554 3 6.5 3V3V3C7.90446 3 8.60669 3 9.11114 3.33706C9.32952 3.48298 9.51702 3.67048 9.66294 3.88886C10 4.39331 10 5.09554 10 6.5V6.5V6.5C10 7.90446 10 8.60669 9.66294 9.11114C9.51702 9.32952 9.32952 9.51702 9.11114 9.66294C8.60669 10 7.90446 10 6.5 10V10V10C5.09554 10 4.39331 10 3.88886 9.66294C3.67048 9.51702 3.48298 9.32952 3.33706 9.11114C3 8.60669 3 7.90446 3 6.5V6.5V6.5Z" fill="#323232"/>
-<path d="M14 17.5C14 16.0955 14 15.3933 14.3371 14.8889C14.483 14.6705 14.6705 14.483 14.8889 14.3371C15.3933 14 16.0955 14 17.5 14V14V14C18.9045 14 19.6067 14 20.1111 14.3371C20.3295 14.483 20.517 14.6705 20.6629 14.8889C21 15.3933 21 16.0955 21 17.5V17.5V17.5C21 18.9045 21 19.6067 20.6629 20.1111C20.517 20.3295 20.3295 20.517 20.1111 20.6629C19.6067 21 18.9045 21 17.5 21V21V21C16.0955 21 15.3933 21 14.8889 20.6629C14.6705 20.517 14.483 20.3295 14.3371 20.1111C14 19.6067 14 18.9045 14 17.5V17.5V17.5Z" stroke="#323232" stroke-width="2"/>
-<path d="M3 17.5C3 16.0955 3 15.3933 3.33706 14.8889C3.48298 14.6705 3.67048 14.483 3.88886 14.3371C4.39331 14 5.09554 14 6.5 14V14V14C7.90446 14 8.60669 14 9.11114 14.3371C9.32952 14.483 9.51702 14.6705 9.66294 14.8889C10 15.3933 10 16.0955 10 17.5V17.5V17.5C10 18.9045 10 19.6067 9.66294 20.1111C9.51702 20.3295 9.32952 20.517 9.11114 20.6629C8.60669 21 7.90446 21 6.5 21V21V21C5.09554 21 4.39331 21 3.88886 20.6629C3.67048 20.517 3.48298 20.3295 3.33706 20.1111C3 19.6067 3 18.9045 3 17.5V17.5V17.5Z" stroke="#323232" stroke-width="2"/>
-<path d="M3 6.5C3 5.09554 3 4.39331 3.33706 3.88886C3.48298 3.67048 3.67048 3.48298 3.88886 3.33706C4.39331 3 5.09554 3 6.5 3V3V3C7.90446 3 8.60669 3 9.11114 3.33706C9.32952 3.48298 9.51702 3.67048 9.66294 3.88886C10 4.39331 10 5.09554 10 6.5V6.5V6.5C10 7.90446 10 8.60669 9.66294 9.11114C9.51702 9.32952 9.32952 9.51702 9.11114 9.66294C8.60669 10 7.90446 10 6.5 10V10V10C5.09554 10 4.39331 10 3.88886 9.66294C3.67048 9.51702 3.48298 9.32952 3.33706 9.11114C3 8.60669 3 7.90446 3 6.5V6.5V6.5Z" stroke="#323232" stroke-width="2"/>
-<path d="M14 6.5H21" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17.5 3V10" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-            </button>
-            </a>
-          ) : (
-            <a>
-            <button
-              className="p-1 text-xs mr-1  rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200 "
-              onClick={() => setShowSecondMenu(true)}
-            >
-              <svg width="15px" height="15px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            </a>
-          )}
+              <MenuButton
+        showSecondMenu={showSecondMenu}
+        setShowSecondMenu={setShowSecondMenu}
+        memoizedEmbeds={memoizedEmbeds}
+        showDeleteButtons={showDeleteButtons}
+        handleDeleteClick={handleDeleteClick}
+      />
           
               
               
@@ -315,34 +290,7 @@ const closeTextModal = () => {
         
       )}
 
-      {showSecondMenu && (
-      <nav className="flex justify-center shadow-2xl  mb-0">
-        <div className="flex flex-wrap gap-1 mt-2 mx-auto  max-w-3xl md:max-w-4xl lg:max-w-6xl justify-center">
-          {memoizedEmbeds.map((embed) => (
-            <div key={embed.id} className="menu-item-container" style={{ position: 'relative', width: 'auto' }}>
-              {showDeleteButtons && (
-                <button
-                  className="delete-button absolute top-0 right-0 px-0 py-0 font-medium text-xs rounded text-black"
-                  onClick={() => handleDeleteClick(embed.id)}
-                >
-                  ⓧ
-                </button>
-              )}
-              <button
-                className={`menu-item  font-semibold text-xs  rounded-full  text-gray-300 ${
-                  embed.active ? ' ' : ''
-                }`}
-                onClick={embed.handleClick}
-                aria-label={`${embed.active ? 'Hide' : 'Show'} ${embed.title}`}
-              >
-                <img src={embed.iconUrl} alt={`${embed.title} icon`} className="w-8 h-8 ring-1 ring-gray-600 bg-[#323232]  rounded-full shadow-xl mx-auto mb-1 " />
-              </button>
-            </div>
-          ))}
-                
-          </div>
-        </nav>
-      )}
+      
 
       
   <div className="flex-col  h-full  items-center mt-0">
@@ -361,7 +309,7 @@ const closeTextModal = () => {
         scrolling="yes"
         className="embed-iframe max-h-full"
         title={embed.title}
-        allow="extensions; postMessage; clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
+        allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
         allowFullScreen
         allowPaymentRequest
         loading="lazy"
