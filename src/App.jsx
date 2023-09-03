@@ -144,10 +144,11 @@ const closeTextModal = () => {
   };
 
   // Listen for the beforeinstallprompt event
+wi// Listen for the beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Create a custom button
-  const button = document.createElement('button');
-  button.textContent = 'Add to home screen';
+  // Use the default design for the "Add to home screen" button
+  e.browserAction.defaultIcon = '/favicon.ico';
+  e.browserAction.defaultTitle = 'My Website';
 
   // When the button is clicked, add the website to the home screen
   button.addEventListener('click', async () => {
@@ -158,6 +159,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Add the button to the DOM
   document.body.appendChild(button);
 });
+
   
 
   return (
