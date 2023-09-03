@@ -144,22 +144,29 @@ const closeTextModal = () => {
   };
 
   // Listen for the beforeinstallprompt event
-// Listen for the beforeinstallprompt event
+//let deferredPrompt;
+
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Use the default design for the "Add to home screen" button
-  e.browserAction.defaultIcon = '/favicon.ico';
-  e.browserAction.defaultTitle = 'My Website';
-
-  // When the button is clicked, add the website to the home screen
-  button.addEventListener('click', async () => {
-    e.preventDefault();
-    e.prompt();
-  });
-
-  // Add the button to the DOM
-  document.body.appendChild(button);
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show a button or UI element to trigger the installation
+  installButton.style.display = 'block';
 });
+  
 
+installButton.addEventListener('click', () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('PWA installed');
+      } else {
+        console.log('PWA installation declined');
+      }
+      deferredPrompt = null;
+    });
+  }
+});
   
 
   return (
