@@ -44,7 +44,7 @@ function MenuButton({ showSecondMenu, setShowSecondMenu, memoizedEmbeds, showDel
 
       <dialog id="my_modal_1" className=" modal5 rounded-xl  bg-[#18181a] shadow-2xl	 bottom-10 ">
         <form method="dialog" className="modal-box  bg-[#18181a]  inset-0">
-         <nav className=" rounded-xl  bg-[#252528] p-2 flex justify-center  shadow-2xl mb-0  inset-0">
+         <nav className=" rounded-xl  bg-[#18181a] p-2 flex justify-center  shadow-2xl mb-0  inset-0">
                 <div className=" flex flex-wrap gap-1 mt-2 mx-auto max-w-3xl md:max-w-4xl lg:max-w-6xl justify-center">
                   {memoizedEmbeds.map((embed) => (
                     <div key={embed.id} className="menu-item-container" style={{ position: 'relative', width: 'auto' }}>
