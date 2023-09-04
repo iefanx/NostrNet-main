@@ -28,13 +28,37 @@
     "window-controls-overlay"
   ],
   "screenshots": [
+  {
+    "src": "screenshot_1.png",
+    "sizes": "1280x720",
+    "type": "image/png",
+    "platform": "wide"
+  },
+  {
+    "src": "screenshot_2.png",
+    "sizes": "1280x720",
+    "type": "image/png",
+    "platform": "wide"
+  },
+  {
+    "src": "screenshot_3.png",
+    "sizes": "1280x720",
+    "type": "image/png",
+    "platform": "wide"
+  },
     {
-      "src": "screenshot-1.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "platform": "wide"
-    }
-  ],
+    "src": "screenshot_4.png",
+    "sizes": "1280x720",
+    "type": "image/png",
+    "platform": "wide"
+  },
+  {
+    "src": "screenshot_5.png",
+    "sizes": "1280x720",
+    "type": "image/png",
+    "platform": "wide"
+  }
+],
   "categories": [
     "entertainment",
     "productivity",
