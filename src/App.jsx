@@ -318,7 +318,7 @@ const closeTextModal = () => {
     {showTextModal && (
       <div className="fixed inset-0 flex items-center   bg-[#18181a] justify-center z-50">
       <div className="absolute inset-0 bg-[#18181a] opacity-60"></div>
-      <div className="z-10 bg-[#18181a] rounded-lg shadow-xl h-full   max-w-full overflow-y-auto">
+      <div className="z-10 bg-[#18181a] rounded-lg shadow-xl h-full   max-w-screen-md overflow-y-auto">
         <div className="text-gray-100  relative">
 
             <button className="absolute top-4 right-2 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
@@ -441,7 +441,12 @@ const getDefaultEmbedsData = () => {
       title: 'Satellite',
       active: false,
     },
-    
+    {
+      id: 'snort-embed',
+      url: 'https://snort.social/notes',
+      title: 'Snort',
+      active: false,
+    },
     {
       id: 'stacker-embed',
       url: 'https://stacker.news/',
