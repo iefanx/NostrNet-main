@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import './App.css';
 import Modal from './Modal';
 import DuckDuckGoSearchBar from './search';
@@ -8,9 +8,7 @@ import ButtonGroup from './ButtonGroup';
 import MenuButton from './MenuButton';
 
 const EMBEDS_DATA_KEY = 'embedsData';
-
-
-
+const EmbedIframe = lazy(() => import('./EmbedIframe'));
 
 const App = () => {
   const [embeds, setEmbeds] = useState(getEmbedsData());
@@ -283,12 +281,12 @@ const closeTextModal = () => {
 
 
               <MenuButton
-        showSecondMenu={showSecondMenu}
-        setShowSecondMenu={setShowSecondMenu}
-        memoizedEmbeds={memoizedEmbeds}
-        showDeleteButtons={showDeleteButtons}
-        handleDeleteClick={handleDeleteClick}
-      />
+                showSecondMenu={showSecondMenu}
+                setShowSecondMenu={setShowSecondMenu}
+                memoizedEmbeds={memoizedEmbeds}
+                showDeleteButtons={showDeleteButtons}
+                handleDeleteClick={handleDeleteClick}
+              />
           
               
               
@@ -297,35 +295,21 @@ const closeTextModal = () => {
       )}
 
       
-
-      
   <div className="flex-col  h-full  items-center mt-0">
     {memoizedEmbeds.map((embed) => (
-      
-      
-      <div
-        key={embed.id}
-        className={`embed-container ${embed.active ? 'active' : ''}`}
-        style={{ display: embed.active ? 'block' : 'none' }}
-      >
-        <div className="h-full">
-        <iframe
-           src={embed.url}
-        frameBorder="0"
-        scrolling="yes"
-        className="embed-iframe max-h-full"
-        title={embed.title}
-        allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
-        allowFullScreen
-     
-        loading="lazy"
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        />
-      </div>
-      </div>
-    ))}
+            <div
+              key={embed.id}
+              className={`embed-container ${embed.active ? 'active' : ''}`}
+              style={{ display: embed.active ? 'block' : 'none' }}
+            >
+              <Suspense fallback={<div>Loading...</div>}>
+                {/* Use the Lazy EmbedIframe component */}
+                <EmbedIframe url={embed.url} title={embed.title} />
+              </Suspense>
+            </div>
+          ))}
   
-</div>
+    </div>
 
 
     {showTextModal && (
