@@ -7,8 +7,11 @@ import ExtModel from './ExtModel';
 import ButtonGroup from './ButtonGroup';
 import MenuButton from './MenuButton';
 
+
 const EMBEDS_DATA_KEY = 'embedsData';
 const EmbedIframe = lazy(() => import('./EmbedIframe'));
+
+
 
 const App = () => {
   const [embeds, setEmbeds] = useState(getEmbedsData());
