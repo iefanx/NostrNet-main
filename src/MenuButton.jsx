@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 
+
 function MenuButton({ showSecondMenu, setShowSecondMenu, memoizedEmbeds, showDeleteButtons, handleDeleteClick }) {
   return (
 
     <div className=''>
       {showSecondMenu ? (
+        
         <a>
+            
           <button
             className="p-1 text-xs rounded-full mr-2 bg-[#758332] font-semibold text-gray-200"
             onClick={() => setShowSecondMenu(false)}
@@ -48,8 +51,11 @@ function MenuButton({ showSecondMenu, setShowSecondMenu, memoizedEmbeds, showDel
 
 <dialog id="my_modal_1" className=" modal5 rounded-xl  bg-[#18181a] shadow-2xl	 bottom-10 ">
   <form method="dialog" className="modal-box  bg-[#18181a]  inset-0">
+    
    <nav className=" rounded-xl  bg-[#18181a] p-2 flex justify-center  shadow-2xl mb-0  inset-0">
-          <div className=" flex flex-wrap gap-1 mt-2 mx-auto max-w-3xl md:max-w-4xl lg:max-w-6xl justify-center">
+    
+          <div className=" flex flex-wrap gap-1 mt-2 mx-auto  max-w-3xl md:max-w-lg lg:max-w-4xl justify-center">
+            
             {memoizedEmbeds.map((embed) => (
               <div key={embed.id} className="menu-item-container" style={{ position: 'relative', width: 'auto' }}>
                
@@ -71,7 +77,16 @@ function MenuButton({ showSecondMenu, setShowSecondMenu, memoizedEmbeds, showDel
         </nav>
     <div className="modal-action space-x-6">
 
-      <button className="btn  font-semibold p-1 text-gray-300">Close</button>
+      <div className="modal-action space-x-6">
+  
+  <button className="btn font-semibold p-1 text-gray-300">Close</button>
+  <button
+    className="btn font-semibold p-1 text-gray-300"
+    onClick={() => window.location.reload()}
+  >
+    Home
+  </button>
+</div>
     
 
               
