@@ -1,6 +1,6 @@
 {
   "short_name": "NostrNet",
-  "name": "NostrNet Work",
+  "name": "NostrNet.work",
   "description": "NostrNet helps you manage all your web applications on one place with a lot of in-App extensions like Llama, Private notes, and Local file sharing.",
   "start_url": "./",
   "display": "standalone",
