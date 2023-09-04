@@ -441,12 +441,7 @@ const getDefaultEmbedsData = () => {
       title: 'Satellite',
       active: false,
     },
-    {
-      id: 'snort-embed',
-      url: 'https://snort.social/notes',
-      title: 'Snort',
-      active: false,
-    },
+    
     {
       id: 'stacker-embed',
       url: 'https://stacker.news/',
