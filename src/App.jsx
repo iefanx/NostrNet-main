@@ -9,6 +9,9 @@ import MenuButton from './MenuButton';
 
 const EMBEDS_DATA_KEY = 'embedsData';
 
+
+
+
 const App = () => {
   const [embeds, setEmbeds] = useState(getEmbedsData());
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -143,10 +146,7 @@ const closeTextModal = () => {
     setButtonClickMessage(`Button ${buttonName} clicked!`);
   };
 
-
   
-
-
   
 
   return (
@@ -270,16 +270,17 @@ const closeTextModal = () => {
               </a>
 
                <a href="/" rel="noopener noreferrer">
-            <button
-              className="p-1 text-xs space-x-3  rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200"
-              href="/"
-            >
-              <svg width="15px" height="15px"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M15 18H9" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </button>
-          </a>
+                <button
+                  className="p-1 text-xs rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200 hover:bg-[#5b5d80] transition"
+                  aria-label="Home"
+                >
+                  <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M15 18H9" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </a>
+
 
               <MenuButton
         showSecondMenu={showSecondMenu}
@@ -312,11 +313,11 @@ const closeTextModal = () => {
            src={embed.url}
         frameBorder="0"
         scrolling="yes"
-        className="embed-iframe max-h-full bg-[#18181a]"
+        className="embed-iframe max-h-full"
         title={embed.title}
         allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
         allowFullScreen
-        allowPaymentRequest
+     
         loading="lazy"
         sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
         />
@@ -336,8 +337,8 @@ const closeTextModal = () => {
             <button className="absolute top-4 right-2 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
              onClick={closeTextModal}>
              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             </button>
           </div>
