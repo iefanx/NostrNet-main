@@ -21,7 +21,14 @@ const DuckDuckGoSearchBar = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const searchUrl = `https://nostr.band/?q=${encodeURIComponent(searchQuery)}`;
-    setModalContent(<iframe src={searchUrl} title="Search Results" className="w-full rounded-xl   px-1 h-full" />);
+    setModalContent(<iframe src={searchUrl} title="Search Results" 
+     frameBorder="0"
+        scrolling="yes"
+        className="embed-iframe max-h-full rounded-xl bg-[#18181a]"
+        allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
+        loading="lazy"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+         />);
   };
 
 
