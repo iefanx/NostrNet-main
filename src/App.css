@@ -263,16 +263,19 @@ body {
 
 }
 
-
+/* Define the styles for the backdrop */
 .modal5 {
   position: fixed;
   top: 0;
   left: 0;
+
   background-color: rgba(0, 0, 0, 0.9);
-  opacity: 1;
+  /* Semi-transparent black */
+
+  /* Initially hidden */
   visibility: visible;
   z-index: 9998;
+  /* Behind the modal */
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-/* Style the backdrop when the modal is open */
