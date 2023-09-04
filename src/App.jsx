@@ -298,7 +298,7 @@ const closeTextModal = () => {
       )}
 
       
-  <div className="flex-col  h-full  items-center mt-0">
+  <div className="flex-col  h-full   items-center mt-0">
     {memoizedEmbeds.map((embed) => (
             <div
               key={embed.id}
@@ -316,10 +316,10 @@ const closeTextModal = () => {
 
 
     {showTextModal && (
-      <div className="fixed inset-0 flex items-center  bg-[#18181a] justify-center z-50">
+      <div className="fixed inset-0 flex items-center   bg-[#18181a] justify-center z-50">
       <div className="absolute inset-0 bg-[#18181a] opacity-60"></div>
-      <div className="z-10 bg-[#18181a] rounded-lg shadow-xl h-full  w-full max-w-screen-md overflow-y-auto">
-        <div className="text-gray-100 h- relative">
+      <div className="z-10 bg-[#18181a] rounded-lg shadow-xl h-full   max-w-full overflow-y-auto">
+        <div className="text-gray-100  relative">
 
             <button className="absolute top-4 right-2 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
              onClick={closeTextModal}>
