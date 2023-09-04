@@ -4,8 +4,8 @@
   "description": "NostrNet helps you manage all your web applications in one place with a lot of in-App extensions like Llama, Private notes, and Local file sharing.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#000",
-  "theme_color": "#000",
+  "background_color": "#18181a",
+  "theme_color": "#18181a",
   "icons": [
     {
       "src": "logo.png",
