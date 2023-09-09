@@ -151,7 +151,7 @@ const closeTextModal = () => {
 
   return (
     <div className=''>
-    <div className="bg-[#18181a] text-white h-full text-center flex flex-col justify-start  w-screen">
+    <div className="bg-[#18181a] text-white h-screen  text-center flex flex-col justify-start  w-screen">
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <div className='text-left'>
