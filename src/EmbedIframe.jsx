@@ -9,7 +9,6 @@ const EmbedIframe = ({ url, title }) => {
       className="embed-iframe max-h-full"
       title={title}
       allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
-      allowFullScreen
       loading="lazy"
       sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
     />
