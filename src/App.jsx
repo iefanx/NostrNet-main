@@ -3,22 +3,22 @@ import './App.css';
 import Modal from './Modal';
 import DuckDuckGoSearchBar from './search';
 import NoteTakingApp from './NoteTakingApp';
-import ExtModel from './ExtModel'; 
+import ExtModel from './ExtModel';
 import ButtonGroup from './ButtonGroup';
 import MenuButton from './MenuButton';
-
 
 const EMBEDS_DATA_KEY = 'embedsData';
 const EmbedIframe = lazy(() => import('./EmbedIframe'));
 
-
-
 const App = () => {
+  // State related to embeds
   const [embeds, setEmbeds] = useState(getEmbedsData());
   const [buttonClicked, setButtonClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
+
+  // State related to menus and buttons
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
   const [showTextModal, setShowTextModal] = useState(false);
@@ -26,7 +26,6 @@ const App = () => {
   const [extModelOpen, setExtModelOpen] = useState(false);
   const [buttonClickMessage, setButtonClickMessage] = useState('');
 
-  
   useEffect(() => {
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
     const storedEmbeds = storedEmbedsData ? JSON.parse(storedEmbedsData) : getEmbedsData();
@@ -147,11 +146,11 @@ const closeTextModal = () => {
     setButtonClickMessage(`Button ${buttonName} clicked!`);
   };
 
-  
+
   
 
   return (
-    <div className='h-screen'>
+    <div className=''>
     <div className="bg-[#18181a] text-white h-full text-center flex flex-col justify-start  w-screen">
       {!buttonClicked && (
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
@@ -439,6 +438,12 @@ const getDefaultEmbedsData = () => {
       id: 'satellite-embed',
       url: 'https://satellite.earth/',
       title: 'Satellite',
+      active: false,
+    },
+    {
+      id: 'snort-embed',
+      url: 'https://snort.social/notes',
+      title: 'Snort',
       active: false,
     },
     {
