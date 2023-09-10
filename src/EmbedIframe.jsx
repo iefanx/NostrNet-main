@@ -10,7 +10,7 @@ const EmbedIframe = ({ url, title }) => {
       title={title}
       allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
       loading="lazy"
-      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+      sandbox=" allow-scripts allow-popups allow-forms"
     />
   );
 };
