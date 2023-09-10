@@ -8,9 +8,9 @@ const EmbedIframe = ({ url, title }) => {
       scrolling="yes"
       className="embed-iframe max-h-full"
       title={title}
-      allow="clipboard-write; autoplay; camera; microphone; geolocation; fullscreen"
+      allow="accelerometer; autoplay; camera; clipboard-write; encrypted-media; fullscreen; geolocation; gyroscope; microphone; midi; payment; picture-in-picture"
       loading="lazy"
-      sandbox=" allow-scripts allow-popups allow-forms"
+      sandbox=" allow-scripts allow-same-origin allow-popups allow-forms"
     />
   );
 };
