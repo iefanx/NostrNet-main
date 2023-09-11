@@ -163,7 +163,7 @@ const Profile = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         <button
         className="bg-gray-700 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
-        onClick={() => handleUrlButtonClick("https://snort.social/settings/profile")}
+        onClick={() => handleUrlButtonClick("https://app.coracle.social/profile")}
         >
         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#e7e7e7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -174,7 +174,7 @@ const Profile = () => {
         </button>
         <button
         className="bg-gray-700 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
-        onClick={() => handleUrlButtonClick("https://snort.social/settings/relays")}
+        onClick={() => handleUrlButtonClick("https://app.coracle.social/relays")}
         >
         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13 21H6C4.11438 21 3.17157 21 2.58579 20.4142C2 19.8284 2 18.8856 2 17C2 15.1144 2 14.1716 2.58579 13.5858C3.17157 13 4.11438 13 6 13H18C19.8856 13 20.8284 13 21.4142 13.5858C22 14.1716 22 15.1144 22 17C22 18.8856 22 19.8284 21.4142 20.4142C20.8284 21 19.8856 21 18 21H17" stroke="#e7e7e7" stroke-width="1.5" stroke-linecap="round"/>
