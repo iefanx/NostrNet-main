@@ -58,7 +58,7 @@ const ButtonGroup = () => {
 
       <button
         className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
-        onClick={() => handleButtonClick('notes')} // Set the selectedUrl to 'notes'
+        onClick={() => handleButtonClick('https://notes.nostrnet.work')} // Set the selectedUrl to 'notes'
       >
           <svg width="30px" height="30px" viewBox="0 0 24 24" fill="#88898c" xmlns="http://www.w3.org/2000/svg">
         <path d="M21.6602 10.44L20.6802 14.62C19.8402 18.23 18.1802 19.69 15.0602 19.39C14.5602 19.35 14.0202 19.26 13.4402 19.12L11.7602 18.72C7.59018 17.73 6.30018 15.67 7.28018 11.49L8.26018 7.30001C8.46018 6.45001 8.70018 5.71001 9.00018 5.10001C10.1702 2.68001 12.1602 2.03001 15.5002 2.82001L17.1702 3.21001C21.3602 4.19001 22.6402 6.26001 21.6602 10.44Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
