@@ -83,7 +83,7 @@ const ButtonGroup = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-          <div className="p-4 rounded-xl w-full h-full relative overflow-y-auto">
+          <div className="p-2 rounded-xl w-full h-full relative overflow-y-auto">
             <button
               className="absolute top-2 right-2 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
               onClick={closeModal}
