@@ -10,7 +10,7 @@ const EmbedIframe = ({ url, title }) => {
       title={title}
       allow="accelerometer; autoplay; camera; clipboard-write; encrypted-media; fullscreen; geolocation; gyroscope; microphone; midi; payment; picture-in-picture; downloads" // Add 'downloads' to the list of allowed permissions
       loading="lazy"
-      sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads" // Add 'allow-downloads' here
+      sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads allow-modals" // Add 'allow-downloads' here
     />
   );
 };
