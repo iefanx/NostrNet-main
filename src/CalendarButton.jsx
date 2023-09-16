@@ -74,7 +74,7 @@ function CalendarButton() {
               className="absolute bottom-2 right-2  text-white px-2 py-1 rounded"
               onClick={closeModal}
             >
-              <span className=" text-red-500  font-semibold "> Close</span>
+              <span className=" text-red-500  font-semibold "> Close Calendar</span>
             </button>
           </div>
         </div>
