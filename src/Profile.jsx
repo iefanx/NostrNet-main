@@ -188,7 +188,7 @@ const Profile = () => {
         </button>
         <button
         className="bg-gray-700 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
-        onClick={() => handleUrlButtonClick("https://nostryfied.online/")}
+        onClick={() => handleUrlButtonClick("https://nostrsync.live/")}
         >
         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.5">
@@ -200,7 +200,7 @@ const Profile = () => {
         </button>
         <button
         className="bg-gray-700 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
-        onClick={() => handleUrlButtonClick("https://example.com")}
+        onClick={() => handleUrlButtonClick("/")}
         >
         
         Coming Soon
