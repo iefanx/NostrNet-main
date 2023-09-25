@@ -7,8 +7,6 @@ import React, {
   Suspense,
 } from "react";
 import "./App.css";
-
-// Import custom components
 import Modal from "./Modal";
 import DuckDuckGoSearchBar from "./search";
 import NoteTakingApp from "./NoteTakingApp";
@@ -17,34 +15,29 @@ import ButtonGroup from "./ButtonGroup";
 import MenuButton from "./MenuButton";
 import CalendarButton from "./CalendarButton";
 
-// Constants
 const EMBEDS_DATA_KEY = "embedsData";
 const EmbedIframe = lazy(() => import("./EmbedIframe"));
 
 function App() {
-  // State related to embeds
   const [embeds, setEmbeds] = useState(getEmbedsData());
   const [buttonClicked, setButtonClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
-
-  // State related to menus and buttons
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
-  const [showTextModal, ] = useState(false);
+  const [showTextModal] = useState(false);
   const [extModelOpen, setExtModelOpen] = useState(false);
   const [buttonClickMessage, setButtonClickMessage] = useState("");
 
-
   useEffect(() => {
-    // Load embeds data from local storage when the component mounts
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
     const storedEmbeds = storedEmbedsData
       ? JSON.parse(storedEmbedsData)
       : getEmbedsData();
     setEmbeds(storedEmbeds);
   }, []);
+  
   const toggleEmbed = useCallback((embedId) => {
     setEmbeds((prevEmbeds) =>
       prevEmbeds.map((embed) => ({
