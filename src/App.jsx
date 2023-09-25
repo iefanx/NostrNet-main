@@ -1,41 +1,50 @@
-import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
-import './App.css';
-import Modal from './Modal';
-import DuckDuckGoSearchBar from './search';
-import NoteTakingApp from './NoteTakingApp';
-import ExtModel from './ExtModel';
-import ButtonGroup from './ButtonGroup';
-import MenuButton from './MenuButton';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  lazy,
+  Suspense,
+} from "react";
+import "./App.css";
+
+// Import custom components
+import Modal from "./Modal";
+import DuckDuckGoSearchBar from "./search";
+import NoteTakingApp from "./NoteTakingApp";
+import ExtModel from "./ExtModel";
+import ButtonGroup from "./ButtonGroup";
+import MenuButton from "./MenuButton";
 import CalendarButton from "./CalendarButton";
 
+// Constants
+const EMBEDS_DATA_KEY = "embedsData";
+const EmbedIframe = lazy(() => import("./EmbedIframe"));
 
-const EMBEDS_DATA_KEY = 'embedsData';
-const EmbedIframe = lazy(() => import('./EmbedIframe'));
-
-const App = () => {
+function App() {
   // State related to embeds
   const [embeds, setEmbeds] = useState(getEmbedsData());
   const [buttonClicked, setButtonClicked] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [url, setUrl] = useState('');
-  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState("");
+  const [title, setTitle] = useState("");
 
   // State related to menus and buttons
   const [showSecondMenu, setShowSecondMenu] = useState(false);
   const [showDeleteButtons, setShowDeleteButtons] = useState(false);
-  const [showTextModal, setShowTextModal] = useState(false);
-  const [, setTextModalContent] = useState('');
+  const [showTextModal, ] = useState(false);
   const [extModelOpen, setExtModelOpen] = useState(false);
-  const [buttonClickMessage, setButtonClickMessage] = useState('');
-  const [showIframe, setShowIframe] = useState(false);
+  const [buttonClickMessage, setButtonClickMessage] = useState("");
 
 
   useEffect(() => {
+    // Load embeds data from local storage when the component mounts
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
-    const storedEmbeds = storedEmbedsData ? JSON.parse(storedEmbedsData) : getEmbedsData();
+    const storedEmbeds = storedEmbedsData
+      ? JSON.parse(storedEmbedsData)
+      : getEmbedsData();
     setEmbeds(storedEmbeds);
   }, []);
-
   const toggleEmbed = useCallback((embedId) => {
     setEmbeds((prevEmbeds) =>
       prevEmbeds.map((embed) => ({
@@ -95,15 +104,18 @@ const App = () => {
 
 
   const memoizedEmbeds = useMemo(() => {
-  const sortedEmbeds = embeds.slice().sort((a, b) => a.title.localeCompare(b.title));
+  const sortedEmbeds = embeds
+    .slice()
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   return sortedEmbeds.map((embed) => {
     const hostname = new URL(embed.url).hostname;
-    const iconUrl = `https://icon.horse/icon/${hostname}`;
+    const iconUrl = `https://icon.horse/icon/${hostname}?size=100x100`;
+
     return {
       ...embed,
       handleClick: () => toggleEmbed(embed.id),
-      iconUrl: iconUrl,
+      iconUrl,
     };
   });
 }, [embeds, toggleEmbed]);
