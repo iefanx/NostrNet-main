@@ -502,9 +502,9 @@ const getDefaultEmbedsData = () => {
     },
     
     {
-      id: 'nostryfied-embed',
+      id: 'nostrsync-embed',
       url: 'https://nostrsync.live/',
-      title: 'Nostryfied',
+      title: 'NostrSync',
       active: false,
     },
     {
