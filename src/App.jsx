@@ -552,6 +552,12 @@ const getDefaultEmbedsData = () => {
       active: false,
     },
     {
+      id: 'oddbean-embed',
+      url: 'https://oddbean.com/',
+      title: 'Oddbean',
+      active: false,
+    },
+    {
       id: 'zapstream-embed',
       url: 'https://zap.stream/',
       title: 'Zap.Stream',
