@@ -503,7 +503,7 @@ const getDefaultEmbedsData = () => {
     
     {
       id: 'nostryfied-embed',
-      url: 'https://nostryfied.online/',
+      url: 'https://nostrsync.live/',
       title: 'Nostryfied',
       active: false,
     },
