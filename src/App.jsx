@@ -478,7 +478,7 @@ const getDefaultEmbedsData = () => {
     },
     {
       id: 'highlighter-embed',
-      url: 'https://highlighter.com/global/newest',
+      url: 'https://highlighter.com',
       title: 'Highlighter',
       active: false,
     },
