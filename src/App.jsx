@@ -14,6 +14,7 @@ import ExtModel from "./ExtModel";
 import ButtonGroup from "./ButtonGroup";
 import MenuButton from "./MenuButton";
 import CalendarButton from "./CalendarButton";
+import Browser from "./Browser";
 
 const EMBEDS_DATA_KEY = "embedsData";
 const EmbedIframe = lazy(() => import("./EmbedIframe"));
@@ -163,6 +164,10 @@ const closeTextModal = () => {
         {!buttonClicked && (
           <div style={{ position: "relative", marginBottom: "1rem" }}>
             <CalendarButton />
+            <div className=" flex justify-end mr-10">
+            <Browser />
+            </div>
+
             <div className="text-left">
               <h1 className="text-2xl  font-serif mt-4 px-5 m-3 ">
                 <span className="  font-black"> 𝐍</span>
