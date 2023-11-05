@@ -69,7 +69,7 @@ const ButtonGroup = () => {
         <span className="ml-1">Notes</span>
       </button>
       <button
-        className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
+        className="bg-[#252528]  hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
         onClick={() => handleButtonClick('https://drop.lol/')}
       >
         <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,9 +83,9 @@ const ButtonGroup = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-          <div className="p-2 rounded-xl w-full h-full relative overflow-y-auto">
+          <div className="  w-full h-full relative overflow-y-auto">
             <button
-              className="absolute top-2 right-2 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
+              className="absolute top-1 right-1 font-bold text-gray-300 rounded-full bg-gray-300 hover:text-white"
               onClick={closeModal}
             >
                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@ const ButtonGroup = () => {
               </svg>
             </button>
              {selectedUrl === 'notes' ? (
-                <div className="modal-content   rounded-xl">
+                <div className="modal-content   ">
                 <NoteTakingApp />
                 </div>
             ) : (
@@ -103,7 +103,7 @@ const ButtonGroup = () => {
                 src={selectedUrl}
                 width="100%"
                 height="100%"
-                className="modal-content rounded-xl bg-[#18181a]"
+                className="modal-content  bg-[#18181a]"
                 frameBorder="0"
               />
             )}
