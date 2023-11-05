@@ -520,8 +520,14 @@ const getDefaultEmbedsData = () => {
       },
     {
       id: 'nostrcheck-embed',
-      url: 'https://nostrcheck.me//',
+      url: 'https://nostrcheck.me/',
       title: 'NostrCheck',
+      active: false,
+      },
+    {
+      id: 'nostrudel-embed',
+      url: 'https://nostrudel.ninja/',
+      title: 'noStrudel',
       active: false,
       },
     
