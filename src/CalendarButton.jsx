@@ -60,8 +60,8 @@ function CalendarButton() {
 
       {/* Calendar Modal */}
       {showModal && (
-        <div className="fixed inset-0 h-full  bg-black flex items-center justify-center z-50">
-          <div className="absolute inset-0  bg-black opacity-50"></div>
+        <div className="fixed inset-0 h-full  bg-[#18181a] flex items-center justify-center z-50">
+          <div className="absolute inset-0  bg-[#18181a] opacity-50"></div>
           <div className="relative z-10 pt-6  h-full w-full rounded-lg">
             <iframe
               src="https://cal.nostrnet.work" // Replace with your calendar website URL
