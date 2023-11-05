@@ -60,9 +60,9 @@ function CalendarButton() {
 
       {/* Calendar Modal */}
       {showModal && (
-        <div className="fixed inset-0 h-full flex items-center justify-center z-50">
-          <div className="absolute inset-0   bg-black opacity-50"></div>
-          <div className="relative z-10 bg-[#18181a] h-full w-full  rounded-lg">
+        <div className="fixed inset-0 h-full  bg-black flex items-center justify-center z-50">
+          <div className="absolute inset-0  bg-black opacity-50"></div>
+          <div className="relative z-10 pt-6  h-full w-full rounded-lg">
             <iframe
               src="https://cal.nostrnet.work" // Replace with your calendar website URL
               title="Calendar"
@@ -71,10 +71,10 @@ function CalendarButton() {
               height="100%" // Adjust the height as needed
             ></iframe>
             <button
-              className="absolute bottom-2 right-2  text-white px-2 py-1 rounded"
+              className="absolute top-0  right-2 text-white px-2 py-0.5 rounded"
               onClick={closeModal}
             >
-              <span className=" text-red-500  font-semibold "> Close Calendar</span>
+              <span className="text-red-500 flex font-semibold">X</span>
             </button>
           </div>
         </div>
