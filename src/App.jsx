@@ -165,7 +165,7 @@ const closeTextModal = () => {
           <div style={{ position: "relative", marginBottom: "1rem" }}>
             <CalendarButton />
             <div className=" flex justify-end mr-10">
-            <Browser />
+              <Browser />
             </div>
 
             <div className="text-left">
@@ -298,80 +298,6 @@ const closeTextModal = () => {
                 𝐍
               </a>
             </div>
-            <a>
-              <button
-                className="p-1 text-xs   rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200"
-                onClick={() => openTextModal("This is the text modal content.")}
-              >
-                <svg
-                  width="15px"
-                  height="15px"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M21.6602 10.44L20.6802 14.62C19.8402 18.23 18.1802 19.69 15.0602 19.39C14.5602 19.35 14.0202 19.26 13.4402 19.12L11.7602 18.72C7.59018 17.73 6.30018 15.67 7.28018 11.49L8.26018 7.30001C8.46018 6.45001 8.70018 5.71001 9.00018 5.10001C10.1702 2.68001 12.1602 2.03001 15.5002 2.82001L17.1702 3.21001C21.3602 4.19001 22.6402 6.26001 21.6602 10.44Z"
-                    stroke="#292D32"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    opacity="0.4"
-                    d="M15.0603 19.3901C14.4403 19.8101 13.6603 20.1601 12.7103 20.4701L11.1303 20.9901C7.16034 22.2701 5.07034 21.2001 3.78034 17.2301L2.50034 13.2801C1.22034 9.3101 2.28034 7.2101 6.25034 5.9301L7.83034 5.4101C8.24034 5.2801 8.63034 5.1701 9.00034 5.1001C8.70034 5.7101 8.46034 6.4501 8.26034 7.3001L7.28034 11.4901C6.30034 15.6701 7.59034 17.7301 11.7603 18.7201L13.4403 19.1201C14.0203 19.2601 14.5603 19.3501 15.0603 19.3901Z"
-                    stroke="#292D32"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    opacity="0.4"
-                    d="M12.6406 8.52979L17.4906 9.75979"
-                    stroke="#292D32"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    opacity="0.4"
-                    d="M11.6602 12.3999L14.5602 13.1399"
-                    stroke="#292D32"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </a>
-
-            <a href="/" rel="noopener noreferrer">
-              <button
-                className="p-1 text-xs rounded-full shadow-lg z-10 bg-[#6a6c91] font-semibold text-gray-200 hover:bg-[#5b5d80] transition"
-                aria-label="Home"
-              >
-                <svg
-                  width="15px"
-                  height="15px"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274"
-                    stroke="#1C274C"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M15 18H9"
-                    stroke="#1C274C"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-            </a>
 
             <MenuButton
               showSecondMenu={showSecondMenu}
@@ -380,6 +306,33 @@ const closeTextModal = () => {
               showDeleteButtons={showDeleteButtons}
               handleDeleteClick={handleDeleteClick}
             />
+            <a href="/" rel="noopener noreferrer">
+              <button
+                className="p-0.5 text-xs rounded-full shadow-lg z-10 bg-[#5d6095] font-semibold text-gray-200 hover:bg-[#5b5d80] transition"
+                aria-label="Home"
+              >
+                <svg
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
+                    stroke="#1C274C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7"
+                    stroke="#1C274C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+            </a>
           </div>
         )}
 
