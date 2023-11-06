@@ -68,7 +68,7 @@ function Browser() {
           <div className="absolute inset-0  bg-[#18181a] opacity-50"></div>
           <div className="relative z-10 pt-6  h-full w-full rounded-lg">
             <iframe
-              src="https://holyubofficial.net/" // Replace with your calendar website URL
+              src="https://labs.perplexity.ai/" // Replace with your calendar website URL
               title="Calendar"
               name="uniqueIframeName" // Set a unique name for the iframe
               width="100%"
