@@ -124,6 +124,37 @@ function App() {
   }, []);
 
 
+    const exportData = () => {
+      const dataToExport = localStorage.getItem(EMBEDS_DATA_KEY);
+      const blob = new Blob([dataToExport], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "embedsData.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    };
+
+    // New function to import data
+    const importData = (event) => {
+      const file = event.target.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const importedData = e.target.result;
+          localStorage.setItem(EMBEDS_DATA_KEY, importedData);
+          setEmbeds(JSON.parse(importedData));
+        };
+
+        reader.readAsText(file);
+      }
+    };
+
   
 // Add these functions
 const openTextModal = (content) => {
@@ -197,6 +228,53 @@ const closeTextModal = () => {
                   Reset
                 </button>
               )}
+              <button
+                className="px-4 py-2 ml-2 text-sm rounded font-bold text-blue-500"
+                onClick={() =>
+                  document.getElementById("my_modal_1").showModal()
+                }
+              >
+                Backup/Restore
+              </button>
+
+              {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+              <dialog id="my_modal_1" className="modal rounded-lg ">
+                <div className="border border-[#313134] p-6 bg-[#313134] items-center rounded-lg shadow-2xl text-center">
+                  <p className="mb-4 font-semibold text-white">
+                    Backup/Restore your App list
+                  </p>
+
+                  <div className="flex justify-center space-x-4">
+                    <button
+                      className="bg-gray-600 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
+                      onClick={exportData}
+                    >
+                      Export Data
+                    </button>
+                    <label className="bg-gray-600 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2 cursor-pointer">
+                      Import Data
+                      <input
+                        type="file"
+                        accept=".json"
+                        onChange={importData}
+                        className="hidden"
+                      />
+                    </label>
+                  </div>
+
+                  {/* Close button */}
+                  <button
+                    className="mt-6 px-2 py-1 text-sm rounded font-bold text-white bg-red-500 hover:bg-red-600"
+                    onClick={() =>
+                      document.getElementById("my_modal_1").close()
+                    }
+                  >
+                    Close
+                  </button>
+                </div>
+              </dialog>
+
               <button
                 className="px-4 py-2 text-sm rounded font-bold text-white"
                 onClick={handleDeleteAllClick}
@@ -411,6 +489,8 @@ const getEmbedsData = () => {
   const initialEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
   return initialEmbedsData ? JSON.parse(initialEmbedsData) : getDefaultEmbedsData();
 };
+
+
 
 
 
