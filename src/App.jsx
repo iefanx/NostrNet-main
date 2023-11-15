@@ -250,10 +250,10 @@ const closeTextModal = () => {
                       className="bg-gray-600 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
                       onClick={exportData}
                     >
-                      Export Data
+                      Backup
                     </button>
                     <label className="bg-gray-600 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2 cursor-pointer">
-                      Import Data
+                      Restore
                       <input
                         type="file"
                         accept=".json"
