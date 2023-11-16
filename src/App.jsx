@@ -16,6 +16,7 @@ import MenuButton from "./MenuButton";
 import CalendarButton from "./CalendarButton";
 import Browser from "./Browser";
 
+
 const EMBEDS_DATA_KEY = "embedsData";
 const EmbedIframe = lazy(() => import("./EmbedIframe"));
 
@@ -30,6 +31,10 @@ function App() {
   const [showTextModal] = useState(false);
   const [extModelOpen, setExtModelOpen] = useState(false);
   const [buttonClickMessage, setButtonClickMessage] = useState("");
+
+  const isStandalone =
+    window.navigator.standalone ||
+    window.matchMedia("(display-mode: standalone)").matches;
 
   useEffect(() => {
     const storedEmbedsData = localStorage.getItem(EMBEDS_DATA_KEY);
@@ -195,14 +200,50 @@ const closeTextModal = () => {
         {!buttonClicked && (
           <div style={{ position: "relative", marginBottom: "1rem" }}>
             <CalendarButton />
-            <div className=" flex justify-end mr-10">
+            <div className="flex justify-end mr-10">
               <Browser />
+            </div>
+            <div className="flex justify-end mr-10">
+              {isStandalone && (
+                // Render the button only in standalone mode
+                <button
+                  className=" absolute mt-3.5 px-5 text-sm mr-10 rounded font-bold text-white"
+                  onClick={() =>
+                    (window.location.href =
+                      "https://realiefan.github.io/NostrNet-StartPage/")
+                  }
+                >
+                  <svg
+                    width="30px"
+                    height="30px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      opacity="0.5"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      fill="#A4A8B7"
+                    />
+                    <path
+                      d="M8.57516 9.44737C8.3879 7.36316 6.7806 5.42105 6.00035 4.71053L5.56934 4.34189C7.30792 2.88037 9.55133 2 12.0004 2C14.2137 2 16.2592 2.7191 17.9158 3.93642C18.1498 4.64695 17.704 6.13158 17.2359 6.84211C17.0663 7.09947 16.6818 7.41898 16.2602 7.72186C15.3097 8.40477 14.1102 8.74254 13.5004 10C13.326 10.3595 13.3335 10.7108 13.4173 11.0163C13.4776 11.2358 13.5161 11.4745 13.5167 11.708C13.5187 12.4629 12.7552 13.0082 12.0004 13C10.0361 12.9786 8.7502 11.3955 8.57516 9.44737Z"
+                      fill="#dadce2"
+                    />
+                    <path
+                      d="M13.4365 18.2761C14.4246 16.414 17.7182 16.414 17.7182 16.414C21.1502 16.3782 21.6138 14.2944 21.9237 13.2412C21.369 17.7226 17.8494 21.2849 13.3885 21.9046C13.0659 21.2256 12.6837 19.6946 13.4365 18.2761Z"
+                      fill="#dadce2"
+                    />
+                  </svg>
+                </button>
+              )}
             </div>
 
             <div className="text-left">
-              <h1 className="text-2xl  font-serif mt-4 px-5 m-3 ">
-                <span className="  font-black"> 𝐍</span>
-                <span className=" font-medium  font-serif text-base">
+              <h1 className="text-2xl font-serif mt-4 px-5 m-3 ">
+                <span className="font-black"> 𝐍</span>
+                <span className="font-medium font-serif text-base">
                   ostrNet
                 </span>
               </h1>
@@ -238,7 +279,6 @@ const closeTextModal = () => {
               </button>
 
               {/* Open the modal using document.getElementById('ID').showModal() method */}
-
               <dialog id="my_modal_1" className="modal rounded-lg ">
                 <div className="border border-[#313134] p-6 bg-[#313134] items-center rounded-lg shadow-2xl text-center">
                   <p className="mb-4 font-semibold text-white">
@@ -250,10 +290,10 @@ const closeTextModal = () => {
                       className="bg-gray-600 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2"
                       onClick={exportData}
                     >
-                      Backup
+                      Export Data
                     </button>
                     <label className="bg-gray-600 text-white font-semibold rounded-xl text-sm hover:bg-gray-600 px-4 py-2 flex items-center space-x-2 cursor-pointer">
-                      Restore
+                      Import Data
                       <input
                         type="file"
                         accept=".json"
@@ -286,11 +326,11 @@ const closeTextModal = () => {
         )}
 
         {!embeds.some((embed) => embed.active) && !showSecondMenu ? (
-          <nav className="flex justify-center  mb-0">
-            <div className="flex flex-wrap gap-1 mt-0 mx-auto   w-full max-w-4xl md:max-w-4xl lg:max-w-6xl justify-center">
+          <nav className="flex justify-center mb-0">
+            <div className="flex flex-wrap gap-1 mt-0 mx-auto w-full max-w-4xl md:max-w-4xl lg:max-w-6xl justify-center">
               {memoizedEmbeds.map((embed) => (
                 <div
-                  className=" "
+                  className=""
                   key={embed.id}
                   style={{ position: "relative", minWidth: "80px" }}
                 >
@@ -319,7 +359,6 @@ const closeTextModal = () => {
                       minWidth: "80px",
                       maxWidth: "120px",
                       whiteSpace: "nowrap",
-
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       transition: "background-color 0.3s, transform 0.3s",
@@ -328,7 +367,7 @@ const closeTextModal = () => {
                     <img
                       src={embed.iconUrl}
                       alt={`${embed.title} icon`}
-                      className="w-14 h-14 shadow-xl  bg-[#252528] rounded-full mx-auto mb-1 ring-2 ring-gray-600"
+                      className="w-14 h-14 shadow-xl bg-[#252528] rounded-full mx-auto mb-1 ring-2 ring-gray-600"
                     />
                     <span
                       className="embed-title shadow"
@@ -342,7 +381,7 @@ const closeTextModal = () => {
               {!embeds.some((embed) => embed.active) && (
                 <div>
                   <button
-                    className={`inline-block px-0 pb-2  font-semibold text-xs  rounded-lg text-gray-300`}
+                    className={`inline-block px-0 pb-2 font-semibold text-xs rounded-lg text-gray-300`}
                     onClick={handleAddClick}
                   >
                     <svg
@@ -483,6 +522,8 @@ const closeTextModal = () => {
     </div>
   );
 };
+
+
 
 
 const getEmbedsData = () => {
