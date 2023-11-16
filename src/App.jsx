@@ -210,7 +210,7 @@ const closeTextModal = () => {
                   className=" absolute mt-3.5 px-5 text-sm mr-10 rounded font-bold text-white"
                   onClick={() =>
                     (window.location.href =
-                      "https://realiefan.github.io/NostrNet-StartPage/")
+                      "https://web.nostrnet.work/")
                   }
                 >
                   <svg
