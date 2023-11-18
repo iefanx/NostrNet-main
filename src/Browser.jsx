@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
-
 function Browser() {
   const [showModal, setShowModal] = useState(false);
 
@@ -89,7 +87,7 @@ function Browser() {
 
       {showInstallButton && (
         <button
-          className="absolute top-2.5 right-16 text-white px-1.5 py-0 bg-[#273253] rounded-md flex items-center"
+          className="absolute top-3 right-16 text-white px-1.5 py-0 bg-[#273253] rounded-md flex items-center"
           onClick={handleInstallClick}
         >
           <span className="mr-2 text-white p-0 text-sm font-extrabold">Install </span>
