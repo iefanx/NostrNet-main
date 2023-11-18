@@ -199,11 +199,11 @@ const closeTextModal = () => {
       <div className="bg-[#18181a] text-white h-screen text-center flex flex-col justify-start w-screen">
         {!buttonClicked && (
           <div style={{ position: "relative", marginBottom: "1rem" }}>
-            <CalendarButton />
-            <div className="flex justify-end mr-10">
+            
+            <div className="flex justify-end ">
               <Browser />
             </div>
-            <div className="flex justify-end mr-10">
+            <div className="flex justify-end mr-">
               {isStandalone && (
                 // Render the button only in standalone mode
                 <button
