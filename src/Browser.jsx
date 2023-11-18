@@ -51,7 +51,7 @@ function Browser() {
     <div className="relative">
       {/* Calendar Button */}
       <button
-        className="absolute top-2.5 right-3  text-white px-2 py-1 rounded"
+        className="absolute top-2 right-3  text-white px-2 py-1 rounded"
         onClick={openModal}
       >
         <svg
@@ -89,15 +89,17 @@ function Browser() {
 
       {showInstallButton && (
         <button
-          className="absolute top-2 right-14  text-white px-2 py-1 rounded"
+          className="absolute top-2.5 right-16 text-white px-1.5 py-0 bg-[#273253] rounded-md flex items-center"
           onClick={handleInstallClick}
         >
+          <span className="mr-2 text-white p-0 text-sm font-extrabold">Install </span>
           <svg
             width="30px"
             height="30px"
             viewBox="0 0 24 24"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            xmln
+            s="http://www.w3.org/2000/svg"
           >
             <path
               opacity="1"
