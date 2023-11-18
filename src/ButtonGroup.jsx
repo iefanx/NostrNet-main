@@ -109,7 +109,7 @@ const ButtonGroup = () => {
           />
         </svg>
 
-        <span className="ml-1">Calander</span>
+        <span className="ml-1">Calendar</span>
       </button>
       <button
         className="bg-[#252528] hover:bg-gray-700 text-gray-300 text-sm font-semibold py-2 px-4 rounded-xl shadow-lg flex items-center space-x-2"
