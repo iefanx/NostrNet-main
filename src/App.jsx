@@ -207,10 +207,10 @@ const closeTextModal = () => {
               {isStandalone && (
                 // Render the button only in standalone mode
                 <button
-                  className=" absolute mt-3.5 px-5 text-sm mr-10 rounded font-bold text-white"
+                  className=" absolute mt-3 px-5 text-sm mr-10 rounded font-bold text-white"
                   onClick={() =>
                     (window.location.href =
-                      "https://web.nostrnet.work/")
+                      "https://realiefan.github.io/NostrNet-StartPage/")
                   }
                 >
                   <svg
