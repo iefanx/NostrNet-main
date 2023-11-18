@@ -13,7 +13,6 @@ import NoteTakingApp from "./NoteTakingApp";
 import ExtModel from "./ExtModel";
 import ButtonGroup from "./ButtonGroup";
 import MenuButton from "./MenuButton";
-import CalendarButton from "./CalendarButton";
 import Browser from "./Browser";
 
 
