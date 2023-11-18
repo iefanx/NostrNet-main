@@ -241,7 +241,7 @@ const closeTextModal = () => {
             </div>
 
             <div className="text-left">
-              <h1 className="text-2xl font-serif mt-4 px-5 m-3 ">
+              <h1 className="text-2xl font-serif mt-3 px-5 m-3 ">
                 <span className="font-black"> 𝐍</span>
                 <span className="font-medium font-serif text-base">
                   ostrNet
