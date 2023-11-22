@@ -13,6 +13,7 @@ import NoteTakingApp from "./NoteTakingApp";
 import ExtModel from "./ExtModel";
 import ButtonGroup from "./ButtonGroup";
 import MenuButton from "./MenuButton";
+
 import Browser from "./Browser";
 
 
@@ -183,13 +184,7 @@ const closeTextModal = () => {
     setButtonClickMessage(`Button ${buttonName} clicked!`);
   };
 
-  const openIframe = () => {
-    setShowIframe(true);
-  };
-
-  const closeIframe = () => {
-    setShowIframe(false);
-  };
+  
 
   
 
@@ -198,7 +193,6 @@ const closeTextModal = () => {
       <div className="bg-[#18181a] text-white h-screen text-center flex flex-col justify-start w-screen">
         {!buttonClicked && (
           <div style={{ position: "relative", marginBottom: "1rem" }}>
-            
             <div className="flex justify-end ">
               <Browser />
             </div>
@@ -206,10 +200,9 @@ const closeTextModal = () => {
               {isStandalone && (
                 // Render the button only in standalone mode
                 <button
-                  className=" absolute mt-3 px-5 text-sm mr-10 rounded font-bold text-white"
+                  className=" absolute mt-3 px-5 text-sm mr-3 rounded font-bold text-white"
                   onClick={() =>
-                    (window.location.href =
-                      "https://web.nostrnet.work/")
+                    (window.location.href = "https://web.nostrnet.work/")
                   }
                 >
                   <svg
