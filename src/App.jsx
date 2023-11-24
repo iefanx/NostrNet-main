@@ -197,10 +197,10 @@ const closeTextModal = () => {
               <Browser />
             </div>
             <div className="flex justify-end mr-">
-              {isStandalone && (
-                // Render the button only in standalone mode
+              
+                
                 <button
-                  className=" absolute mt-3 px-5 text-sm mr-3 rounded font-bold text-white"
+                  className=" absolute mt-3 px-5 text-sm mr-3  rounded font-bold text-white"
                   onClick={() =>
                     (window.location.href = "https://app.nostrnet.work/")
                   }
@@ -229,7 +229,7 @@ const closeTextModal = () => {
                     />
                   </svg>
                 </button>
-              )}
+              
             </div>
 
             <div className="text-left">
