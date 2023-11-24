@@ -202,7 +202,7 @@ const closeTextModal = () => {
                 <button
                   className=" absolute mt-3 px-5 text-sm mr-3 rounded font-bold text-white"
                   onClick={() =>
-                    (window.location.href = "https://web.nostrnet.work/")
+                    (window.location.href = "https://app.nostrnet.work/")
                   }
                 >
                   <svg
